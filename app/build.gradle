@@ -18,7 +18,10 @@ android {
         }
     }
 }
-
+android.packagingOptions {
+    exclude 'META-INF/NOTICE' // will not include NOTICE file
+    exclude 'META-INF/LICENSE' // will not include LICENSE file
+}
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
