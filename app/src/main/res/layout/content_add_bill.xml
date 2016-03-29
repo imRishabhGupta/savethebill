@@ -13,35 +13,39 @@
     tools:context="com.example.user.savethebill.AddBill"
     tools:showIn="@layout/activity_add_bill">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Scan bill"/>
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/bill_name"
         android:hint="Bill Name"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/owner"
         android:hint="Name of the owner"/>
-    <EditText
+
+    <DatePicker
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
+        android:id="@+id/last_date"
         android:hint="Last date to pay"/>
-    <EditText
+
+        <DatePicker
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
+        android:id="@+id/guarantee"
         android:hint="Guarantee expires on"/>
-    <EditText
+    <DatePicker
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
+        android:id="@+id/warranty"
         android:hint="Warranty expires on"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+
         android:layout_gravity="center"
         android:onClick="add"
         android:text="Add"/>

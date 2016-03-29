@@ -1,16 +1,14 @@
 package com.example.user.savethebill;
 
-import java.util.Date;
-
 /**
  * Created by user on 29-03-2016.
  */
 public class Bill {
     private String bill_type;
     private String owner_name;
-    private Date last_date;
-    private Date guarantee;
-    private Date warranty;
+    private Date1 last_date;
+    private Date1 guarantee;
+    private Date1 warranty;
     public Bill(){
 
     }
@@ -26,22 +24,22 @@ public class Bill {
     public void setOwner_name(String owner_name){
         this.owner_name=owner_name;
     }
-    public Date getLast_date(){
+    public Date1 getLast_date(){
         return last_date;
     }
-    public void setLast_date(Date last_date){
+    public void setLast_date(Date1 last_date){
         this.last_date=last_date;
     }
-    public Date getGuarantee(){
+    public Date1 getGuarantee(){
         return guarantee;
     }
-    public void setGuarantee(Date guarantee){
+    public void setGuarantee(Date1 guarantee){
         this.guarantee=guarantee;
     }
-    public Date getWarranty(){
+    public Date1 getWarranty(){
         return warranty;
     }
-    public void setWarranty(Date warranty){
+    public void setWarranty(Date1 warranty){
         this.warranty=warranty;
     }
 
