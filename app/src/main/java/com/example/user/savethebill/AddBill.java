@@ -1,18 +1,18 @@
 package com.example.user.savethebill;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
-import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
-import com.firebase.client.Query;
 import com.firebase.client.ValueEventListener;
 
 public class AddBill extends AppCompatActivity {
@@ -20,7 +20,7 @@ public class AddBill extends AppCompatActivity {
     Firebase firebase,ref;
     EditText a,b;
     DatePicker c,d,e;
-
+    long count;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,59 +28,27 @@ public class AddBill extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
         firebase = new Firebase("https://savethebill.firebaseio.com");
         ref=new Firebase("https://savethebill.firebaseio.com/"+firebase.getAuth().getUid());
 
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                long count = snapshot.getChildrenCount();
-                System.out.println("The read success: " + count);
 
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-                System.out.println("The read failed: " + firebaseError.getMessage());
-            }
-        });
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Query queryRef = ref.orderByChild("warranty");
-                queryRef.addChildEventListener(new ChildEventListener() {
-                    @Override
-                    public void onChildAdded(DataSnapshot snapshot, String previousChild) {
-                        Bill bill = snapshot.getValue(Bill.class);
-                        System.out.println(snapshot.getKey() + " was " + bill.getWarranty() + " meters tall");
-                    }
 
-                    @Override
-                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-                    }
-
-                    @Override
-                    public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-                    }
-
-                    @Override
-                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-                    }
-
-                    @Override
-                    public void onCancelled(FirebaseError firebaseError) {
-
-                    }
-                });
             }
         });
-
+Button button=(Button)findViewById(R.id.bu);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent =new Intent(getApplicationContext(),ImageActivity.class);
+                //startActivity(intent);
+                Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, 0);
+            }
+        });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
@@ -109,8 +77,27 @@ public class AddBill extends AppCompatActivity {
         date1.setMonth(e.getMonth());
         date1.setYear(e.getYear());
         bill.setWarranty(date1);
-        ref.child("Bill").setValue(bill);
+        ref.addValueEventListener(new ValueEventListener() {
+            long c;
+
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                c = snapshot.getChildrenCount();
+                System.out.println("The read success: " + c);
+                getData(c);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                System.out.println("The read failed: " + firebaseError.getMessage());
+            }
+        });
+        System.out.println("got"+count);
+        ref.child("Bill"+count).setValue(bill);
 
 
+    }
+    public void getData(long c){
+        count=c;
     }
 }
