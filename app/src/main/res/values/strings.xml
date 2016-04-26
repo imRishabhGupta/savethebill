@@ -91,5 +91,6 @@
     </string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_add_bill">AddBill</string>
+    <string name="Date">Date</string>
     <string name="title_activity_all_bills">AllBills</string>
 </resources>

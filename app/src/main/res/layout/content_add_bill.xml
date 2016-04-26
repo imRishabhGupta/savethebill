@@ -21,49 +21,85 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bill_name"
-        android:hint="Bill Name"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bu"
-              android:text="Scan Bill"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="130dp"
+        android:id="@+id/imageView" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bill_name"
+            android:hint="Bill Name"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bu"
+                android:text="Scan Bill"
+                android:layout_marginTop="40dp"/>
+
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/autoCompleteTextView"
+                android:hint="Type 'Bill'"
+                android:layout_marginTop="40dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
 </LinearLayout>
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/owner"
-        android:hint="Name of the owner"/>
+        android:hint="Name of the owner"
+        android:layout_marginTop="40dp"/>
 
-    <DatePicker
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:id="@+id/last_date"
-        android:hint="Last date to pay"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp">
 
-        <DatePicker
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:id="@+id/guarantee"
-        android:hint="Guarantee expires on"
-            android:calendarViewShown="true"
-            android:spinnersShown="true"
-            android:startYear="2016" />
-    <DatePicker
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:id="@+id/warranty"
-        android:hint="Warranty expires on"/>
+        <EditText
+            android:id="@+id/etxt_fromdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:hint="start date" />
+
+        <EditText
+            android:id="@+id/etxt_todate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:hint="last date" />
+
+
+    </LinearLayout>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         android:layout_gravity="center"
         android:onClick="add"
-        android:text="Add"/>
+        android:text="Add"
+        android:layout_marginTop="40dp"/>
 </LinearLayout>
 </ScrollView>
