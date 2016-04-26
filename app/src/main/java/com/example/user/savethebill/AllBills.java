@@ -84,6 +84,7 @@ public class AllBills extends AppCompatActivity {
                 intent1.putExtra("owner",x.getNameofowner());
                 intent1.putExtra("lastdate",x.getLastdate());
                 intent1.putExtra("guarantee",x.getGuarantee());
+                intent1.putExtra("image",x.getImagestring());
 
                 startActivity(intent1);
 
