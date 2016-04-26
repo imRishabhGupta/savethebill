@@ -50,10 +50,11 @@ public class DisplayBill extends AppCompatActivity {
             owner = intent.getStringExtra("owner");
         }
 
+        if(image!=null){
         byte[] imageAsBytes = Base64.decode(image.getBytes(), Base64.DEFAULT);
         thumbnail.setImageBitmap(
                 BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length)
-        );
+        );}
         a.setText(billname);
         b.setText(owner);
         c.setText(type);

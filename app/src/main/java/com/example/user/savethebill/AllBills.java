@@ -3,7 +3,6 @@ package com.example.user.savethebill;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -16,8 +15,6 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class AllBills extends AppCompatActivity {
     ArrayList<Movie> bills;
@@ -54,9 +51,9 @@ public class AllBills extends AppCompatActivity {
                 long count = snapshot.getChildrenCount();
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
 
-                        Movie bill = postSnapshot.getValue(Movie.class);
+                        Movie bill =  postSnapshot.getValue(Movie.class);
                         bills.add(bill);
-                        System.out.println(bill.getType() + "  " + bills.get(0).getNameofowner());
+                        System.out.println(bill.getType() + "  " + bill.getNameofowner());
                     }
                     System.out.println("The read success: " + count);
 
@@ -77,7 +74,7 @@ public class AllBills extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent intent1 =new Intent(getApplicationContext(),DisplayBill.class);
-                Movie x=(Movie)billAdapter.getItem(position);
+                Movie x=(Movie)bills.get(position);
 
                 intent1.putExtra("billname",x.getBillName());
                 intent1.putExtra("type",x.getType());

@@ -1,7 +1,6 @@
 package com.example.user.savethebill;
 
 import android.app.DatePickerDialog;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,7 +8,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
@@ -22,7 +20,6 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
@@ -35,7 +32,6 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Locale;
 
 public class AddBill extends AppCompatActivity {
@@ -45,7 +41,7 @@ public class AddBill extends AppCompatActivity {
     private Bitmap bitmap;
     String base64Image;
     private   AutoCompleteTextView b;
-    long count;
+    long count=7;
     String[] arr={"electricity bill","water bill","consumer bill","telephone bill","other bill"};
     private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
     public static final int MEDIA_TYPE_IMAGE = 1;
@@ -93,7 +89,21 @@ public class AddBill extends AppCompatActivity {
 
         firebase = new Firebase("https://savethebill.firebaseio.com");
         ref = new Firebase("https://savethebill.firebaseio.com/" + firebase.getAuth().getUid());
+        ref.addValueEventListener(new ValueEventListener() {
+            long cd;
 
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                cd = snapshot.getChildrenCount();
+                System.out.println("The read success: " + cd);
+                getData(cd);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                System.out.println("The read failed: " + firebaseError.getMessage());
+            }
+        });
 
         imgPreview = (ImageView) findViewById(R.id.imageView);
         btnCapturePicture = (Button) findViewById(R.id.bu);
@@ -251,24 +261,25 @@ public class AddBill extends AppCompatActivity {
         bill.setNameofowner(c.getText().toString());
         bill.setLastdate(fromDateEtxt.getText().toString());
         bill.setGuarantee(toDateEtxt.getText().toString());
+        if(bitmap!=null){
         storeImageToFirebase();
-        bill.setImagestring(base64Image);
+        bill.setImagestring(base64Image);}
 
-//        ref.addValueEventListener(new ValueEventListener() {
-//            long c;
-//
-//            @Override
-//            public void onDataChange(DataSnapshot snapshot) {
-//                c = snapshot.getChildrenCount();
-//                System.out.println("The read success: " + c);
-//                getData(c);
-//            }
-//
-//            @Override
-//            public void onCancelled(FirebaseError firebaseError) {
-//                System.out.println("The read failed: " + firebaseError.getMessage());
-//            }
-//        });
+        ref.addValueEventListener(new ValueEventListener() {
+            long cd;
+
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                cd = snapshot.getChildrenCount();
+                System.out.println("The read success: " + cd);
+                getData(cd);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                System.out.println("The read failed: " + firebaseError.getMessage());
+            }
+        });
         System.out.println("got"+count);
 
         ref.child("Bill"+count).setValue(bill);
