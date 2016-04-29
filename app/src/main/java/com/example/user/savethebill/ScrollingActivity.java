@@ -2,11 +2,8 @@ package com.example.user.savethebill;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -27,14 +24,6 @@ Firebase firebase;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),AddBill.class);
-                startActivity(intent);
-            }
-        });
         Firebase.setAndroidContext(this);
         firebase = new Firebase("https://savethebill.firebaseio.com");
         firebase.addAuthStateListener(new Firebase.AuthStateListener() {
@@ -60,6 +49,7 @@ Firebase firebase;
         @Override
         public void onAuthenticationError(FirebaseError firebaseError) {
             // Authenticated failed with error firebaseError
+            Toast.makeText(ScrollingActivity.this, "error in logging in", Toast.LENGTH_SHORT).show();
         }
     };
     public void storing(){

@@ -16,21 +16,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter email"
+        android:layout_marginTop="20dp"
+        android:layout_margin="10dp"
+        android:padding="10dp"
         android:id="@+id/email"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:password="true"
+        android:layout_margin="10dp"
+        android:padding="10dp"
         android:hint="Enter password"
         android:id="@+id/password"        />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Log In"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:padding="10dp"
         android:onClick="logIn"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:padding="10dp"
         android:text="Register"
         android:onClick="submit"/>
 </LinearLayout>

@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -18,13 +19,16 @@ import java.util.ArrayList;
 
 public class AllBills extends AppCompatActivity {
     ArrayList<Movie> bills;
+    Firebase ref;
+    CustomListAdapter billAdapter;
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_bills);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//
+        progressBar=(ProgressBar)findViewById(R.id.progressBar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -34,39 +38,22 @@ public class AllBills extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        System.out.println("testing.....1..2...3..");
 
         Firebase firebase = new Firebase("https://savethebill.firebaseio.com");
-        Firebase ref=new Firebase("https://savethebill.firebaseio.com/"+firebase.getAuth().getUid());
+        ref=new Firebase("https://savethebill.firebaseio.com/"+firebase.getAuth().getUid());
 //        Firebase.getDefaultConfig().setPersistenceEnabled(true);
         ref.keepSynced(true);
 
-
+        System.out.println("testing.....1..2...3..");
 
         bills=new ArrayList<>();
+        System.out.println("testing.....1..2...3..");
+        progressBar.setVisibility(View.VISIBLE);
+        refresh();
 
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                long count = snapshot.getChildrenCount();
-                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-
-                        Movie bill =  postSnapshot.getValue(Movie.class);
-                        bills.add(bill);
-                        System.out.println(bill.getType() + "  " + bill.getNameofowner());
-                    }
-                    System.out.println("The read success: " + count);
-
-
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-                System.out.println("The read failed: " + firebaseError.getMessage());
-            }
-        });
         //System.out.println("got  "+bills.get(0).getOwner_name());
-        final CustomListAdapter billAdapter=new CustomListAdapter(this,bills);
+        billAdapter=new CustomListAdapter(this,bills);
         final ListView listView=(ListView)findViewById(R.id.list);
         listView.setAdapter(billAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -74,7 +61,7 @@ public class AllBills extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent intent1 =new Intent(getApplicationContext(),DisplayBill.class);
-                Movie x=(Movie)bills.get(position);
+                Movie x=bills.get(position);
 
                 intent1.putExtra("billname",x.getBillName());
                 intent1.putExtra("type",x.getType());
@@ -88,8 +75,36 @@ public class AllBills extends AppCompatActivity {
             }
         });
 
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
+void refresh(){
+    bills=new ArrayList<>();
+
+    ref.addValueEventListener(new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot snapshot) {
+
+            System.out.println("testing.....1..2...3..");
+            long count = snapshot.getChildrenCount();
+            for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+
+                Movie bill =  postSnapshot.getValue(Movie.class);
+                bills.add(bill);
+                System.out.println(bill.getType() + "  " + bill.getNameofowner());
+            }
+            System.out.println("The read success: " + count);
+            billAdapter.notifyDataSetChanged();
+            progressBar.setVisibility(View.GONE);
+        }
+
+        @Override
+        public void onCancelled(FirebaseError firebaseError) {
+            System.out.println("The read failed: " + firebaseError.getMessage());
+        }
+    });
+
+
+}
 
 }
