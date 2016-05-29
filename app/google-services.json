@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "364443096843",
+    "firebase_url": "https://savethebill.firebaseio.com",
+    "project_id": "project-5484019288374077521",
+    "storage_bucket": "project-5484019288374077521.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:364443096843:android:5eba45d80b97dffe",
+        "android_client_info": {
+          "package_name": "com.example.user.savethebill"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "364443096843-c7d0cmbed65cf9redec3tapl6im7brbg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV0rrzal2EmTcRDcCOa8Cj2Pqvp--sXqg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

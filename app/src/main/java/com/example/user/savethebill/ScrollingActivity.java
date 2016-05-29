@@ -1,5 +1,6 @@
 package com.example.user.savethebill;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +17,9 @@ import java.util.Map;
 
 public class ScrollingActivity extends AppCompatActivity  {
 Firebase firebase;
-    EditText email,password;
+    EditText email;
+    EditText password;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +42,11 @@ Firebase firebase;
         });
 
     }
+
     Firebase.AuthResultHandler authResultHandler = new Firebase.AuthResultHandler() {
         @Override
         public void onAuthenticated(AuthData authData) {
+            progressDialog.dismiss();
             Intent intent=new Intent(getApplicationContext(),AllBills.class);
             startActivity(intent);
             // Authenticated successfully with payload authData
@@ -49,6 +54,7 @@ Firebase firebase;
         @Override
         public void onAuthenticationError(FirebaseError firebaseError) {
             // Authenticated failed with error firebaseError
+            progressDialog.dismiss();
             Toast.makeText(ScrollingActivity.this, "error in logging in", Toast.LENGTH_SHORT).show();
         }
     };
@@ -57,10 +63,20 @@ Firebase firebase;
         firebase.child(authData.getUid());
     }
     public void submit(View view){
+        progressDialog = new ProgressDialog(ScrollingActivity.this,
+                ProgressDialog.THEME_HOLO_LIGHT);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Creating new account...");
+        progressDialog.show();
         email=(EditText)findViewById(R.id.email);
         password=(EditText)findViewById(R.id.password);
         final String emailText=email.getText().toString();
         final String passwordText=password.getText().toString();
+        if(emailText.equals("")||passwordText.equals("")){
+            progressDialog.dismiss();
+            Toast.makeText(ScrollingActivity.this, "Both fields are required.", Toast.LENGTH_SHORT).show();
+            return;
+        }
         firebase.createUser(emailText, passwordText, new Firebase.ValueResultHandler<Map<String, Object>>() {
             @Override
             public void onSuccess(Map<String, Object> result) {
@@ -70,18 +86,30 @@ Firebase firebase;
             }
             @Override
             public void onError(FirebaseError firebaseError) {
-
+                progressDialog.dismiss();
+                Toast.makeText(ScrollingActivity.this, "error in creating new account", Toast.LENGTH_SHORT).show();
                 // there was an error
             }
         });
     }
 
     public  void logIn(View view){
+
+        progressDialog = new ProgressDialog(ScrollingActivity.this,
+                ProgressDialog.THEME_HOLO_LIGHT);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Authenticating...");
+        progressDialog.show();
+
         email=(EditText)findViewById(R.id.email);
         password=(EditText)findViewById(R.id.password);
         String emailText=email.getText().toString();
         String passwordText=password.getText().toString();
-
+        if(emailText.equals("")||passwordText.equals("")){
+            progressDialog.dismiss();
+            Toast.makeText(ScrollingActivity.this, "Both fields are required.", Toast.LENGTH_SHORT).show();
+            return;
+        }
         firebase.authWithPassword(emailText, passwordText, authResultHandler);
 
     }

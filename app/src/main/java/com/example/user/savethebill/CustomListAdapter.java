@@ -57,9 +57,9 @@ public class CustomListAdapter extends BaseAdapter {
         ImageView thumbNail = (ImageView) convertView
                 .findViewById(R.id.thumbnail);
         TextView bill_name = (TextView) convertView.findViewById(R.id.title);
-        TextView owner = (TextView) convertView.findViewById(R.id.rating);
+        //TextView owner = (TextView) convertView.findViewById(R.id.rating);
         TextView type = (TextView) convertView.findViewById(R.id.genre);
-        TextView lastdate = (TextView) convertView.findViewById(R.id.releaseYear);
+       // TextView lastdate = (TextView) convertView.findViewById(R.id.releaseYear);
 
         // getting movie data for the row
         Movie m = bills.get(position);
@@ -71,9 +71,9 @@ public class CustomListAdapter extends BaseAdapter {
         );}
 
         bill_name.setText(m.getBillName());
-        owner.setText(m.getNameofowner());
+       // owner.setText(m.getNameofowner());
         type.setText(m.getType());
-        lastdate.setText(m.getGuarantee());
+        //lastdate.setText(m.getGuarantee());
 
 
         return convertView;

@@ -1,5 +1,6 @@
 package com.example.user.savethebill;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -21,14 +21,13 @@ public class AllBills extends AppCompatActivity {
     ArrayList<Movie> bills;
     Firebase ref;
     CustomListAdapter billAdapter;
-    ProgressBar progressBar;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_bills);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        progressBar=(ProgressBar)findViewById(R.id.progressBar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +48,11 @@ public class AllBills extends AppCompatActivity {
 
         bills=new ArrayList<>();
         System.out.println("testing.....1..2...3..");
-        progressBar.setVisibility(View.VISIBLE);
+        progressDialog = new ProgressDialog(AllBills.this,
+                ProgressDialog.THEME_HOLO_LIGHT);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Retrieving all your bills...");
+        progressDialog.show();
         refresh();
 
         //System.out.println("got  "+bills.get(0).getOwner_name());
@@ -95,7 +98,7 @@ void refresh(){
             }
             System.out.println("The read success: " + count);
             billAdapter.notifyDataSetChanged();
-            progressBar.setVisibility(View.GONE);
+            progressDialog.dismiss();
         }
 
         @Override
