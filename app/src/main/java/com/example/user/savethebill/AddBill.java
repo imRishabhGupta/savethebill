@@ -1,6 +1,9 @@
 package com.example.user.savethebill;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
@@ -55,6 +59,7 @@ public class AddBill extends AppCompatActivity {
     private DatePickerDialog toDatePickerDialog;
 
     private SimpleDateFormat dateFormatter;
+    Calendar cal1,cal2;
 
     private Uri fileUri; // file url to store image/video
 
@@ -141,9 +146,9 @@ public class AddBill extends AppCompatActivity {
         fromDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                Calendar newDate = Calendar.getInstance();
-                newDate.set(year, monthOfYear, dayOfMonth);
-                fromDateEtxt.setText(dateFormatter.format(newDate.getTime()));
+                cal1 = Calendar.getInstance();
+                cal1.set(year, monthOfYear, dayOfMonth);
+                fromDateEtxt.setText(dateFormatter.format(cal1.getTime()));
             }
 
         },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
@@ -151,9 +156,9 @@ public class AddBill extends AppCompatActivity {
         toDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                Calendar newDate = Calendar.getInstance();
-                newDate.set(year, monthOfYear, dayOfMonth);
-                toDateEtxt.setText(dateFormatter.format(newDate.getTime()));
+                cal2 = Calendar.getInstance();
+                cal2.set(year, monthOfYear, dayOfMonth);
+                toDateEtxt.setText(dateFormatter.format(cal2.getTime()));
             }
 
         },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
@@ -280,6 +285,24 @@ public class AddBill extends AppCompatActivity {
                 System.out.println("The read failed: " + firebaseError.getMessage());
             }
         });
+
+
+        Intent notificationIntent = new Intent(this,AlarmReceiver.class);
+        notificationIntent.setAction("android.media.action.DISPLAY_NOTIFICATION");
+        notificationIntent.putExtra("name",a.getText().toString());
+        notificationIntent.putExtra("type",b.getText().toString());
+
+
+
+        if(fromDateEtxt.getText().toString().length()>0) {
+          setRepeatingAlarm(notificationIntent,cal1);
+        }
+
+        if(toDateEtxt.getText().toString().length()>0) {
+
+
+            setRepeatingAlarm(notificationIntent,cal2);
+        }
         System.out.println("got"+count);
 
         ref.child("Bill"+count).setValue(bill);
@@ -287,6 +310,39 @@ public class AddBill extends AppCompatActivity {
         Intent i=new Intent(getApplicationContext(),AllBills.class);
         startActivity(i);
 
+
+    }
+
+    public void setRepeatingAlarm(Intent notificationIntent, Calendar cal)
+    {
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+
+        notificationIntent.putExtra("daysleft",cal.getTime().getTime());
+        Log.d("addbill",String.valueOf(cal.getTime().getTime()));
+        int id = (int) System.currentTimeMillis();
+        notificationIntent.putExtra("id",id);
+
+
+
+        PendingIntent broadcast2 = PendingIntent.getBroadcast(getApplicationContext(), id, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Calendar calx = Calendar.getInstance();
+        calx.set(Calendar.HOUR_OF_DAY, 10);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calx.getTimeInMillis(), 4 * 24 * 60 * 60 * 1000, broadcast2);
+
+        Intent cancellationIntent = new Intent(this, CancelAlarmBroadcastReceiver.class);
+        cancellationIntent.setAction("android.media.action.DISPLAY_NOTIFICATION");
+
+
+        Log.d("AddBill","ABOUT TO REACH");
+        cancellationIntent.putExtra("key",broadcast2);
+        cal.set(Calendar.HOUR_OF_DAY,10);
+
+        PendingIntent cancellationPendingIntent = PendingIntent.getBroadcast(getApplicationContext(), id, cancellationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        alarmManager.set(AlarmManager.RTC, cal.getTimeInMillis(),cancellationPendingIntent);
 
     }
     public void getData(long c){

@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.firebase.client.Firebase;
+
 public class DisplayBill extends AppCompatActivity {
 
     String billname;
@@ -18,9 +20,11 @@ public class DisplayBill extends AppCompatActivity {
     String guarantee;
     String lastdate;
     String owner;
+    int pos;
     ImageView thumbnail;
     TextView a,b,c,d,e;
     Button delete;
+    Firebase firebase,ref;
 
 
     @Override
@@ -34,9 +38,14 @@ public class DisplayBill extends AppCompatActivity {
         e=(TextView)findViewById(R.id.textView5);
         thumbnail=(ImageView)findViewById(R.id.imageView2);
         delete=(Button)findViewById(R.id.button);
+        firebase = new Firebase("https://savethebill.firebaseio.com");
+        ref = new Firebase("https://savethebill.firebaseio.com/" + firebase.getAuth().getUid());
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ref.child("bill"+pos).removeValue();
+                Intent i=new Intent(getApplicationContext(),AllBills.class);
+                startActivity(i);
 
             }
         });
@@ -48,6 +57,8 @@ public class DisplayBill extends AppCompatActivity {
             guarantee = intent.getStringExtra("guarantee");
             lastdate = intent.getStringExtra("lastdate");
             owner = intent.getStringExtra("owner");
+            pos=intent.getIntExtra("billno",0);
+
         }
 
         if(image!=null){

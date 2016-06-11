@@ -81,14 +81,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
-            android:hint="start date" />
+            android:hint="end date 1" />
 
         <EditText
             android:id="@+id/etxt_todate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
-            android:hint="last date" />
+            android:hint="end date 2" />
 
 
     </LinearLayout>
