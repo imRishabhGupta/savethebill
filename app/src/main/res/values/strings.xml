@@ -93,4 +93,5 @@
     <string name="title_activity_add_bill">AddBill</string>
     <string name="Date">Date</string>
     <string name="title_activity_all_bills">AllBills</string>
+    <string name="title_activity_edit_bill">EditBill</string>
 </resources>

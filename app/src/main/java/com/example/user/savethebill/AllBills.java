@@ -41,7 +41,6 @@ public class AllBills extends AppCompatActivity {
 
         Firebase firebase = new Firebase("https://savethebill.firebaseio.com");
         ref=new Firebase("https://savethebill.firebaseio.com/"+firebase.getAuth().getUid());
-//        Firebase.getDefaultConfig().setPersistenceEnabled(true);
         ref.keepSynced(true);
 
         System.out.println("testing.....1..2...3..");
@@ -50,7 +49,7 @@ public class AllBills extends AppCompatActivity {
         System.out.println("testing.....1..2...3..");
         progressDialog = new ProgressDialog(AllBills.this,
                 ProgressDialog.THEME_HOLO_LIGHT);
-        progressDialog.setIndeterminate(true);
+        progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setMessage("Retrieving all your bills...");
         progressDialog.show();
         refresh();
@@ -66,12 +65,13 @@ public class AllBills extends AppCompatActivity {
                 Intent intent1 =new Intent(getApplicationContext(),DisplayBill.class);
                 Movie x=bills.get(position);
 
-                intent1.putExtra("billname",x.getBillName());
-                intent1.putExtra("type",x.getType());
-                intent1.putExtra("owner",x.getNameofowner());
-                intent1.putExtra("lastdate",x.getLastdate());
-                intent1.putExtra("guarantee",x.getGuarantee());
-                intent1.putExtra("image",x.getImagestring());
+//                intent1.putExtra("billname",x.getBillName());
+//                intent1.putExtra("type",x.getType());
+//                intent1.putExtra("owner",x.getNameofowner());
+//                intent1.putExtra("lastdate",x.getLastdate());
+//                intent1.putExtra("guarantee",x.getGuarantee());
+//                intent1.putExtra("image",x.getImagestring());
+                intent1.putExtra("position",Integer.toString(position));
 
                 startActivity(intent1);
 
@@ -85,6 +85,7 @@ public class AllBills extends AppCompatActivity {
     }
 void refresh(){
     bills=new ArrayList<>();
+    bills.clear();
 
     ref.addValueEventListener(new ValueEventListener() {
         @Override
@@ -106,10 +107,15 @@ void refresh(){
         @Override
         public void onCancelled(FirebaseError firebaseError) {
             System.out.println("The read failed: " + firebaseError.getMessage());
+            progressDialog.dismiss();
         }
     });
-
-
 }
 
+//    @Override
+  //  public void startActivityForResult(Intent intent, int requestCode, Bundle options) {
+    //    Toast.makeText(getApplicationContext(),"Bill deleted successfully",Toast.LENGTH_LONG).show();
+      //  progressDialog.show();
+        //refresh();
+    //}
 }

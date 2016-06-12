@@ -11,11 +11,11 @@
     <uses-feature android:name="android.hardware.camera" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name=".MyApplication"
         android:theme="@style/AppTheme">
         <activity
             android:name=".ScrollingActivity"
@@ -45,18 +45,38 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.user.savethebill.AllBills" />
         </activity>
-        <activity android:name=".DisplayBill" />
-        <activity android:name=".NotificationActivity"></activity>
+        <activity
+            android:name=".DisplayBill"
+            android:label="Bill Details"
+            android:parentActivityName=".AllBills"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.user.savethebill.AllBills" />
+        </activity>
+
         <receiver android:name=".AlarmReceiver">
             <intent-filter>
                 <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
         <receiver android:name=".CancelAlarmBroadcastReceiver">
             <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
+
             <category android:name="android.intent.category.DEFAULT" />
         </receiver>
+
+        <activity
+            android:name=".EditBill"
+            android:label="@string/title_activity_edit_bill"
+            android:parentActivityName=".DisplayBill"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.user.savethebill.DisplayBill" />
+        </activity>
     </application>
 
 </manifest>

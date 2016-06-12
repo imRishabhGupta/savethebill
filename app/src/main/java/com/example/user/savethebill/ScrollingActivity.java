@@ -65,8 +65,9 @@ Firebase firebase;
     public void submit(View view){
         progressDialog = new ProgressDialog(ScrollingActivity.this,
                 ProgressDialog.THEME_HOLO_LIGHT);
-        progressDialog.setIndeterminate(true);
+
         progressDialog.setMessage("Creating new account...");
+        progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
         email=(EditText)findViewById(R.id.email);
         password=(EditText)findViewById(R.id.password);
