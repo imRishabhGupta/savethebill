@@ -309,8 +309,10 @@ public class AddBill extends AppCompatActivity {
     public void setRepeatingAlarm(Intent notificationIntent, Calendar cal) {
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        if(cal==null)
+            return;
         notificationIntent.putExtra("daysleft",cal.getTime().getTime());
-        Log.d("addbill",String.valueOf(cal.getTime().getTime()));
+        //Log.d("addbill",String.valueOf(cal.getTime().getTime()));
         int id = (int) System.currentTimeMillis();
         notificationIntent.putExtra("id",id);
 
