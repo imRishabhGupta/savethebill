@@ -99,7 +99,8 @@ public class EditBill extends AppCompatActivity {
                 String image=data[2];
                 if(image!=null&&!image.equals("")){
                     byte[] imageAsBytes = Base64.decode(image.getBytes(), Base64.DEFAULT);
-                    imgPreview.setImageBitmap(BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
+                    bitmap=BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+                    imgPreview.setImageBitmap(bitmap);
                 }
             }
 
