@@ -5,20 +5,20 @@ package com.example.user.savethebill;
  */
 
 
-public class Movie {
-    private String bill_name, type , imagestring , nameofowner , lastdate, guarantee ;
+public class Bill {
+    private String bill_name, type , imagestring , nameofowner , endDate2, endDate1;
 
 
-    public Movie() {
+    public Bill() {
     }
 
-    public Movie(String bill_name, String type, String imagestring, String nameofowner, String lastdate, String gaurantee) {
+    public Bill(String bill_name, String type, String imagestring, String nameofowner, String endDate2, String gaurantee) {
         this.bill_name = bill_name;
         this.imagestring = imagestring;
         this.type = type;
         this.nameofowner = nameofowner;
-        this.lastdate = lastdate;
-        this.guarantee = guarantee;
+        this.endDate2 = endDate2;
+        this.endDate1 = endDate1;
     }
 
     public String getBillName() {return bill_name;}
@@ -51,20 +51,20 @@ public class Movie {
         this.nameofowner = nameofowner;
     }
 
-    public String getLastdate() {
-        return lastdate;
+    public String getEndDate2() {
+        return endDate2;
     }
 
-    public void setLastdate(String lastdate) {
-        this.lastdate =lastdate;
+    public void setEndDate2(String endDate2) {
+        this.endDate2 = endDate2;
     }
 
-    public String getGuarantee() {
-        return guarantee;
+    public String getEndDate1() {
+        return endDate1;
     }
 
-    public void setGuarantee(String guarantee) {
-        this.guarantee = guarantee;
+    public void setEndDate1(String endDate1) {
+        this.endDate1 = endDate1;
     }
 
 

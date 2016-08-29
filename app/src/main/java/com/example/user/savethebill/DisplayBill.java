@@ -19,20 +19,12 @@ import com.firebase.client.ValueEventListener;
 
 public class DisplayBill extends AppCompatActivity {
 
-    String billname;
-    String type;
-    String image;
-    String guarantee;
-    String lastdate;
-    String owner;
-    int pos;
-    ImageView thumbnail;
-    TextView a,b,c,d,e;
-    Button delete;
-    Firebase firebase,ref;
-    ProgressDialog progressDialog;
-    String[] data=new String[6];
-
+    private String billname, type, image, endDate1, endDate2, owner;
+    private ImageView thumbnail;
+    private TextView a,b,c,d,e;
+    private Firebase ref;
+    private ProgressDialog progressDialog;
+    private String[] data=new String[6];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,32 +38,29 @@ public class DisplayBill extends AppCompatActivity {
         d=(TextView)findViewById(R.id.textView4);
         e=(TextView)findViewById(R.id.textView5);
         thumbnail=(ImageView)findViewById(R.id.imageView2);
-        delete=(Button)findViewById(R.id.button);
-
+        Button delete = (Button) findViewById(R.id.button);
         final Intent intent = getIntent();
-
         final String position=intent.getStringExtra("position");
-                System.out.println(position);
-                firebase = new Firebase("https://savethebill.firebaseio.com");
-                ref=new Firebase("https://savethebill.firebaseio.com/"+firebase.getAuth().getUid()+"/Bill"+position);
-
+        System.out.println(position);
+        Firebase firebase = new Firebase("https://savethebill.firebaseio.com");
+        ref=new Firebase("https://savethebill.firebaseio.com/"+ firebase.getAuth().getUid()+"/Bill"+position);
 
         progressDialog = new ProgressDialog(DisplayBill.this, ProgressDialog.THEME_HOLO_LIGHT);
-                progressDialog.setCanceledOnTouchOutside(false);
-                        progressDialog.setMessage("Retrieving bill...");
-                progressDialog.show();
-                refresh(ref);
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.setMessage("Retrieving bill...");
+        progressDialog.show();
+        refresh(ref);
 
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                        ProgressDialog progressDialog1 = new ProgressDialog(DisplayBill.this, ProgressDialog.THEME_HOLO_LIGHT);
-                        progressDialog.setCanceledOnTouchOutside(false);
-                        progressDialog1.setMessage("Deleting bill...");
-                        progressDialog1.show();
-                        ref.removeValue();
-                        progressDialog1.dismiss();
-                        finish();
+            ProgressDialog progressDialog1 = new ProgressDialog(DisplayBill.this, ProgressDialog.THEME_HOLO_LIGHT);
+            progressDialog.setCanceledOnTouchOutside(false);
+            progressDialog1.setMessage("Deleting bill...");
+            progressDialog1.show();
+            ref.removeValue();
+            progressDialog1.dismiss();
+            finish();
             }
         });
 
@@ -79,54 +68,50 @@ public class DisplayBill extends AppCompatActivity {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1=new Intent(getApplicationContext(),EditBill.class);
-                intent1.putExtra("position",position);
-                startActivity(intent1);
+            Intent intent1=new Intent(getApplicationContext(),EditBill.class);
+            intent1.putExtra("position",position);
+            startActivity(intent1);
             }
         });
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    void refresh(Firebase ref){
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                int i=0;
+                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+                    String str =  postSnapshot.getValue(String.class);
+                    data[i]=str;
+                    i++;
+                }
+                billname=data[0];
+                endDate1 =data[1];
+                endDate2 =data[2];
+                image=data[3];
+                owner=data[4];
+                type=data[5];
+                a.setText(billname);
+                b.setText(owner);
+                c.setText(type);
+                d.setText(endDate1);
+                e.setText(endDate2);
+                if(image!=null&&!image.equals("")){
+                    byte[] imageAsBytes = Base64.decode(image.getBytes(), Base64.DEFAULT);
+                    thumbnail.setImageBitmap(BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
+                }
+                progressDialog.dismiss();
             }
 
-        void refresh(Firebase ref){
-                ref.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot snapshot) {
-                                int i=0;
-                                long count = snapshot.getChildrenCount();
-                                System.out.println("testing....."+count);
-                                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-
-                                        String str =  postSnapshot.getValue(String.class);
-                                        data[i]=str;
-                                        i++;
-                                    }
-                                System.out.println("The read success: " + count);
-
-                                        billname=data[0];
-                                owner=data[4];
-                                type=data[5];
-                                guarantee=data[1];
-                                lastdate=data[3];
-                                image=data[2];
-                                a.setText(billname);
-                                b.setText(owner);
-                                c.setText(type);
-                                d.setText(guarantee);
-                                e.setText(lastdate);
-                                if(image!=null&&!image.equals("")){
-                                        byte[] imageAsBytes = Base64.decode(image.getBytes(), Base64.DEFAULT);
-                                        thumbnail.setImageBitmap(BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
-                                    }
-                                progressDialog.dismiss();
-                            }
-
-                                @Override
-                        public void onCancelled(FirebaseError firebaseError) {
-                                progressDialog.dismiss();
-                                System.out.println("The read failed: " + firebaseError.getMessage());
-                            }
-                   });
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                progressDialog.dismiss();
+                System.out.println("The read failed: " + firebaseError.getMessage());
+            }
+        });
     }
-    }
+}
 
 

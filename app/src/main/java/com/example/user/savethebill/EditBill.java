@@ -119,7 +119,6 @@ public class EditBill extends AppCompatActivity {
                         Manifest.permission.CAMERA)
                         != PackageManager.PERMISSION_GRANTED) {
 
-
                     ActivityCompat.requestPermissions(EditBill.this,
                             new String[]{Manifest.permission.CAMERA},1);
 
@@ -291,12 +290,12 @@ public class EditBill extends AppCompatActivity {
         progressDialog.setMessage("Editing bill...");
         progressDialog.show();
 
-        final Movie bill=new Movie();
+        final Bill bill=new Bill();
         bill.setBillName(a.getText().toString());
         bill.setType(b.getText().toString());
         bill.setNameofowner(c.getText().toString());
-        bill.setLastdate(fromDateEtxt.getText().toString());
-        bill.setGuarantee(toDateEtxt.getText().toString());
+        bill.setEndDate2(fromDateEtxt.getText().toString());
+        bill.setEndDate1(toDateEtxt.getText().toString());
         if(bitmap!=null)
         {
             storeImageToFirebase();

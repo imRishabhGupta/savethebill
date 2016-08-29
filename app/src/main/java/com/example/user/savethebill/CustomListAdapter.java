@@ -22,11 +22,11 @@ import java.util.List;
 public class CustomListAdapter extends BaseAdapter {
     private Activity activity;
     private LayoutInflater inflater;
-    private List<Movie> bills;
+    private List<Bill> bills;
 
-    public CustomListAdapter(Activity activity, List<Movie> movieItems) {
+    public CustomListAdapter(Activity activity, List<Bill> billItems) {
         this.activity = activity;
-        this.bills = movieItems;
+        this.bills = billItems;
     }
 
     @Override
@@ -59,10 +59,10 @@ public class CustomListAdapter extends BaseAdapter {
         TextView bill_name = (TextView) convertView.findViewById(R.id.title);
         //TextView owner = (TextView) convertView.findViewById(R.id.rating);
         TextView type = (TextView) convertView.findViewById(R.id.genre);
-       // TextView lastdate = (TextView) convertView.findViewById(R.id.releaseYear);
+       // TextView endDate2 = (TextView) convertView.findViewById(R.id.releaseYear);
 
         // getting movie data for the row
-        Movie m = bills.get(position);
+        Bill m = bills.get(position);
         if (m.getImagestring() != null) {
 
         byte[] imageAsBytes = Base64.decode(m.getImagestring().getBytes(), Base64.DEFAULT);
@@ -73,7 +73,7 @@ public class CustomListAdapter extends BaseAdapter {
         bill_name.setText(m.getBillName());
        // owner.setText(m.getNameofowner());
         type.setText(m.getType());
-        //lastdate.setText(m.getGuarantee());
+        //endDate2.setText(m.getEndDate1());
 
 
         return convertView;

@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -35,10 +34,7 @@ AlarmReceiver extends BroadcastReceiver {
 
         Date setDate= new Date();
         setDate.setTime(endate1);
-
-
         Date todayDate = new Date();
-
         Long diffMillis=endate1-todayDate.getTime();
 
         float dayCount = (float) diffMillis / (24 * 60 * 60 * 1000);

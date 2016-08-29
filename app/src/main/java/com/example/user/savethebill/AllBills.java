@@ -18,7 +18,7 @@ import com.firebase.client.ValueEventListener;
 import java.util.ArrayList;
 
 public class AllBills extends AppCompatActivity {
-    ArrayList<Movie> bills;
+    ArrayList<Bill> bills;
     Firebase ref;
     CustomListAdapter billAdapter;
     ProgressDialog progressDialog;
@@ -37,16 +37,11 @@ public class AllBills extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        System.out.println("testing.....1..2...3..");
-
         Firebase firebase = new Firebase("https://savethebill.firebaseio.com");
         ref=new Firebase("https://savethebill.firebaseio.com/"+firebase.getAuth().getUid());
         ref.keepSynced(true);
 
-        System.out.println("testing.....1..2...3..");
-
         bills=new ArrayList<>();
-        System.out.println("testing.....1..2...3..");
         progressDialog = new ProgressDialog(AllBills.this,
                 ProgressDialog.THEME_HOLO_LIGHT);
         progressDialog.setCanceledOnTouchOutside(false);
@@ -54,7 +49,6 @@ public class AllBills extends AppCompatActivity {
         progressDialog.show();
         refresh();
 
-        //System.out.println("got  "+bills.get(0).getOwner_name());
         billAdapter=new CustomListAdapter(this,bills);
         final ListView listView=(ListView)findViewById(R.id.list);
         listView.setAdapter(billAdapter);
@@ -63,14 +57,8 @@ public class AllBills extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent intent1 =new Intent(getApplicationContext(),DisplayBill.class);
-                Movie x=bills.get(position);
+                Bill x=bills.get(position);
 
-//                intent1.putExtra("billname",x.getBillName());
-//                intent1.putExtra("type",x.getType());
-//                intent1.putExtra("owner",x.getNameofowner());
-//                intent1.putExtra("lastdate",x.getLastdate());
-//                intent1.putExtra("guarantee",x.getGuarantee());
-//                intent1.putExtra("image",x.getImagestring());
                 intent1.putExtra("position",Integer.toString(position));
 
                 startActivity(intent1);
@@ -91,15 +79,12 @@ void refresh(){
         @Override
         public void onDataChange(DataSnapshot snapshot) {
 
-            System.out.println("testing.....1..2...3..");
             long count = snapshot.getChildrenCount();
             for (DataSnapshot postSnapshot : snapshot.getChildren()) {
 
-                Movie bill =  postSnapshot.getValue(Movie.class);
+                Bill bill =  postSnapshot.getValue(Bill.class);
                 bills.add(bill);
-                System.out.println(bill.getType() + "  " + bill.getNameofowner());
             }
-            System.out.println("The read success: " + count);
             billAdapter.notifyDataSetChanged();
             progressDialog.dismiss();
         }
@@ -112,10 +97,4 @@ void refresh(){
     });
 }
 
-//    @Override
-  //  public void startActivityForResult(Intent intent, int requestCode, Bundle options) {
-    //    Toast.makeText(getApplicationContext(),"Bill deleted successfully",Toast.LENGTH_LONG).show();
-      //  progressDialog.show();
-        //refresh();
-    //}
 }

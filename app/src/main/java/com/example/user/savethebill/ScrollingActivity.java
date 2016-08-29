@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -16,7 +17,8 @@ import com.firebase.client.FirebaseError;
 import java.util.Map;
 
 public class ScrollingActivity extends AppCompatActivity  {
-Firebase firebase;
+    private static final String TAG = ScrollingActivity.class.getSimpleName();
+    Firebase firebase;
     EditText email;
     EditText password;
     ProgressDialog progressDialog;
@@ -49,19 +51,15 @@ Firebase firebase;
             progressDialog.dismiss();
             Intent intent=new Intent(getApplicationContext(),AllBills.class);
             startActivity(intent);
-            // Authenticated successfully with payload authData
         }
         @Override
         public void onAuthenticationError(FirebaseError firebaseError) {
-            // Authenticated failed with error firebaseError
             progressDialog.dismiss();
             Toast.makeText(ScrollingActivity.this, "error in logging in", Toast.LENGTH_SHORT).show();
         }
     };
-    public void storing(){
-        AuthData authData=firebase.getAuth();
-        firebase.child(authData.getUid());
-    }
+
+
     public void submit(View view){
         progressDialog = new ProgressDialog(ScrollingActivity.this,
                 ProgressDialog.THEME_HOLO_LIGHT);
@@ -83,13 +81,12 @@ Firebase firebase;
             public void onSuccess(Map<String, Object> result) {
                 System.out.println("Successfully created user account with uid: " + result.get("uid"));
                 firebase.authWithPassword(emailText, passwordText, authResultHandler);
-                storing();
             }
             @Override
             public void onError(FirebaseError firebaseError) {
                 progressDialog.dismiss();
-                Toast.makeText(ScrollingActivity.this, "error in creating new account", Toast.LENGTH_SHORT).show();
-                // there was an error
+                Toast.makeText(ScrollingActivity.this, firebaseError.toString(), Toast.LENGTH_SHORT).show();
+                Log.d(TAG,firebaseError.toString());
             }
         });
     }
