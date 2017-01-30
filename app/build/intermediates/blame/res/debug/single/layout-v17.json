@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout-v17/preference_material.xml",
+        "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/preference-v14/25.0.1/res/layout-v17/preference_material.xml"
+    },
+    {
+        "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout-v17/preference_dropdown_material.xml",
+        "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/preference-v14/25.0.1/res/layout-v17/preference_dropdown_material.xml"
+    },
+    {
+        "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout-v17/preference_information_material.xml",
+        "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/preference-v14/25.0.1/res/layout-v17/preference_information_material.xml"
+    },
+    {
+        "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout-v17/preference_category_material.xml",
+        "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/preference-v14/25.0.1/res/layout-v17/preference_category_material.xml"
+    }
+]
