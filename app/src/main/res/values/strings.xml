@@ -35,7 +35,13 @@
     <string name="email_pass_not_exists">Email doesn\'t Exists. Please make sure you have entered your email correctly.</string>
     <string name="email_token_string_message">Please Enter the valid access token that was sent to your email id.</string>
 
+    <string name="btn_back"><![CDATA[<< Back]]></string>
+    <string name="btn_reset_password">Reset Password</string>
+    <string name="hint_email">Email</string>
     <string name="websearchnull">NO Result Found</string>
+    <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
+    <string name="lbl_forgot_password">Forgot password?</string>
+    <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
     <string name="error_email">Email address already exists</string>
     <string name="error_msg">Please use the forgot password option, if you do not remember your password</string>
     <string name="email_invalid_title">Incorrect Email</string>

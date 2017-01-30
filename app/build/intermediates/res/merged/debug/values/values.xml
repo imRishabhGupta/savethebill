@@ -651,6 +651,8 @@
     <string name="app_name">SaveTheBill</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
+    <string name="btn_back">&lt;&lt; Back</string>
+    <string name="btn_reset_password">Reset Password</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="common_google_play_services_api_unavailable_text"><ns1:g id="app_name">%1$s</ns1:g> requires one or more Google Play services that are not currently available. Please contact the developer for assistance.</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable Google Play services</string>
@@ -701,14 +703,18 @@
     <string name="field_cannot_be_empty">This field cannot be empty</string>
     <string name="firebase_database_url" translatable="false">https://savethebill.firebaseio.com</string>
     <string name="forgot_pass_activity">Forgot Password?</string>
+    <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
     <string name="gcm_defaultSenderId" translatable="false">364443096843</string>
     <string name="google_api_key" translatable="false">AIzaSyBV0rrzal2EmTcRDcCOa8Cj2Pqvp--sXqg</string>
     <string name="google_app_id" translatable="false">1:364443096843:android:5eba45d80b97dffe</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBV0rrzal2EmTcRDcCOa8Cj2Pqvp--sXqg</string>
     <string name="google_storage_bucket" translatable="false">project-5484019288374077521.appspot.com</string>
+    <string name="hint_email">Email</string>
+    <string name="lbl_forgot_password">Forgot password?</string>
     <string name="log_in">Log in</string>
     <string name="message_copied">Message copied</string>
     <string name="message_deleted">Message deleted</string>
+    <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
     <string name="pass_change_dialog">Changing your Password. Please Wait</string>
     <string name="pass_validation_text">Enter a combination of at least six characters, containing lower- and uppercase letters and numbers</string>
     <string name="password">Password</string>
