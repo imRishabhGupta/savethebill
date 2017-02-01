@@ -8,6 +8,9 @@
     <string name="password_invalid">The password you entered is incorrect. Please try again.</string>
 
     <string name="activity_login_log_in">Login</string>
+    <string name="action_share">Share</string>
+    <string name="search">Search</string>
+    <string name="action_log_out">Log out</string>
     <string name="activity_login_sing_up">Sign Up</string>
     <string name="activity_login_forgot_pass">Forgot Password?</string>
     <string name="activity_login_sign_up">Sign up</string>
