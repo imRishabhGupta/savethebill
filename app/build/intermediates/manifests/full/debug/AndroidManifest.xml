@@ -34,7 +34,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.user.savethebill.ScrollingActivity"
+            android:name="com.example.user.savethebill.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
@@ -46,11 +46,11 @@
         <activity
             android:name="com.example.user.savethebill.AllBills"
             android:label="@string/title_activity_all_bills"
-            android:parentActivityName="com.example.user.savethebill.ScrollingActivity"
+            android:parentActivityName="com.example.user.savethebill.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.user.savethebill.ScrollingActivity" />
+                android:value="com.example.user.savethebill.LoginActivity" />
         </activity>
         <activity
             android:name="com.example.user.savethebill.AddBill"
@@ -70,6 +70,33 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.user.savethebill.AllBills" />
         </activity>
+        <activity
+            android:name="com.example.user.savethebill.SignUpActivity"
+            android:label="Sign Up"
+            android:parentActivityName="com.example.user.savethebill.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.user.savethebill.LoginActivity" />
+        </activity>
+        <activity
+            android:name="com.example.user.savethebill.EditBill"
+            android:label="@string/title_activity_edit_bill"
+            android:parentActivityName="com.example.user.savethebill.DisplayBill"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.user.savethebill.DisplayBill" />
+        </activity>
+        <activity
+            android:name="com.example.user.savethebill.ForgotPasswordActivity"
+            android:label="@string/title_activity_edit_bill"
+            android:parentActivityName="com.example.user.savethebill.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.user.savethebill.LoginActivity" />
+        </activity>
 
         <receiver android:name="com.example.user.savethebill.AlarmReceiver" >
             <intent-filter>
@@ -84,15 +111,6 @@
             <category android:name="android.intent.category.DEFAULT" />
         </receiver>
 
-        <activity
-            android:name="com.example.user.savethebill.EditBill"
-            android:label="@string/title_activity_edit_bill"
-            android:parentActivityName="com.example.user.savethebill.DisplayBill"
-            android:theme="@style/AppTheme.NoActionBar" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.user.savethebill.DisplayBill" />
-        </activity>
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"

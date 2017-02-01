@@ -59,4 +59,9 @@
     <string name="Date">Date</string>
     <string name="title_activity_all_bills">AllBills</string>
     <string name="title_activity_edit_bill">EditBill</string>
+
+    <!--Share App strings-->
+    <string name="promo_msg_template">Hey, Save all your bills on this app! - %s . You will love it!</string>
+    <string name="error_msg_retry">Please Retry Again</string>
+    <string name="app_share_url">https://play.google.com/store/apps/details?id=%s</string>
 </resources>
