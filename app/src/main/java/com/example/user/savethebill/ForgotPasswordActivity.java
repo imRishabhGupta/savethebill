@@ -46,10 +46,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             inputEmail.getEditText().setText(savedInstanceState.getCharSequenceArray("savedStates")[0].toString());
         }
 
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
-
     }
 
     @OnClick(R.id.btn_back)
@@ -77,6 +73,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                                            public void onComplete(@NonNull Task<Void> task) {
                                                if (task.isSuccessful()) {
                                                    Toast.makeText(getApplicationContext(), "We have sent you instructions to reset your password!", Toast.LENGTH_SHORT).show();
+                                                   finish();
                                                } else {
                                                    AlertDialog.Builder builder = new AlertDialog.Builder(ForgotPasswordActivity.this);
                                                    builder.setTitle(R.string.email_invalid_title);

@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
-
     <LinearLayout
         android:id="@+id/activity_login"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
         android:orientation="vertical"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:weightSum="1"
-        tools:context="org.fossasia.susi.ai.activities.LoginActivity">
-
+        >
 
         <ImageView
             android:layout_width="174dp"
@@ -24,7 +22,7 @@
             android:layout_marginBottom="24dp"
             android:contentDescription="@string/activity_login_imageview_description"
             android:src="@drawable/bill_logo"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="30dp"/>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/email"
@@ -79,10 +77,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
-            android:background="?selectableItemBackground"
             android:text="@string/activity_login_forgot_pass"
             android:textColor="@color/md_grey_400"
             android:textSize="16sp"
+            android:clickable="true"
             android:textStyle="bold"
             android:typeface="monospace" />
 
@@ -91,9 +89,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="60dp"
-            android:background="?selectableItemBackground"
+            android:layout_marginTop="20dp"
             android:gravity="center"
+            android:clickable="true"
             android:text="@string/activity_login_sign_up"
             android:textColor="@color/md_grey_400"
             android:textSize="18sp"

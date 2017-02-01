@@ -651,6 +651,7 @@
     <string name="activity_login_sign_up">Sign up</string>
     <string name="activity_login_sing_up">Sign Up</string>
     <string name="app_name">SaveTheBill</string>
+    <string name="app_share_url">https://play.google.com/store/apps/details?id=%s</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="btn_back">&lt;&lt; Back</string>
@@ -700,6 +701,7 @@
     <string name="error_cancelling_signUp_process_text">Are you sure, You want to stop the sign up process? You will not be able to use the Susi app without an account.</string>
     <string name="error_email">Email address already exists</string>
     <string name="error_msg">Please use the forgot password option, if you do not remember your password</string>
+    <string name="error_msg_retry">Please Retry Again</string>
     <string name="error_password_matching">Passwords do not match</string>
     <string name="exit">Press again to exit</string>
     <string name="field_cannot_be_empty">This field cannot be empty</string>
@@ -727,6 +729,7 @@
     <string name="path_password_eye_mask_strike_through">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_eye_mask_visible">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through">M3.27,4.27 L19.74,20.74</string>
+    <string name="promo_msg_template">Hey, Save all your bills on this app! - %s . You will love it!</string>
     <string name="reset">Reset</string>
     <string name="reset_pass_activity">Reset Password</string>
     <string name="search">Search</string>
@@ -756,8 +759,12 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionModeBackground">@color/md_teal_300</item>
+        <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+
     </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="AppTheme.NoActionBar">
@@ -1788,6 +1795,16 @@
         <item name="tabTextAppearance">@style/TextAppearance.Design.Tab</item>
         <item name="tabSelectedTextColor">?android:textColorPrimary</item>
     </style>
+    <style name="Login_Theme" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorAccent">@color/md_grey_500</item>
+
+        <item name="android:textColorHint">@color/edit_text_login_screen</item>
+        <item name="colorControlNormal">@color/edit_text_login_screen</item>
+        <item name="colorControlActivated">@color/edit_text_login_screen</item>
+        <item name="colorControlHighlight">@color/edit_text_login_screen</item>
+    </style>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
 
@@ -2152,6 +2169,11 @@
     <style name="RtlUnderlay.Widget.AppCompat.ActionButton.Overflow" parent="Base.Widget.AppCompat.ActionButton">
         <item name="android:paddingLeft">@dimen/abc_action_bar_overflow_padding_start_material</item>
         <item name="android:paddingRight">@dimen/abc_action_bar_overflow_padding_end_material</item>
+    </style>
+    <style name="SignUp_Theme" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorAccent">@color/md_grey_500</item>
     </style>
     <style name="TextAppearance.AppCompat" parent="Base.TextAppearance.AppCompat"/>
     <style name="TextAppearance.AppCompat.Body1" parent="Base.TextAppearance.AppCompat.Body1"/>

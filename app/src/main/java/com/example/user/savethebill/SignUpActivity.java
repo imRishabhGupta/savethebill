@@ -50,11 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
             password.getEditText().setText(savedInstanceState.getCharSequenceArray("savedStates")[1].toString());
             confirmPassword.getEditText().setText(savedInstanceState.getCharSequenceArray("savedStates")[2].toString());
         }
-
         setupPasswordWatcher();
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
     }
 
     @Override

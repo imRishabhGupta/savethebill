@@ -41,7 +41,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scrolling);
         ButterKnife.bind(this);
-        Intent intent;
         auth = FirebaseAuth.getInstance();
 
         if (auth.getCurrentUser() != null) {
@@ -84,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("Logging in...");
         progressDialog.show();
 
-        auth.createUserWithEmailAndPassword(email.getEditText().getText().toString(), password.getEditText().getText().toString())
+        auth.signInWithEmailAndPassword(email.getEditText().getText().toString(), password.getEditText().getText().toString())
                 .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
