@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-module/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="79e298d7fed2fcada58da7032d07d34ee198a545">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-module-9.0.2_9f71bfc5e2b28c9004ff7ff1b2ce4d07f29ba91e/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="20456fa60de7563da38d9c9fcf4c115bb050b330">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_cc63b842e92878b711d0d48df12e3dd9a5d7b2ff/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.1.0_1e7108aa382d2e78f988c76a2aa5f62111b8a291/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/transition/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.1.0_f640a118ed50614fb8d7338cc342f6546ced1252/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.0/support-annotations-25.1.0.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.1.0_b962f632b4f057bb79c6ad0be45926e57fcc3ccd/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.1.0_b5dcd996b9cee552e5d1c589a97ef6ef4c84470b/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.1.0_84999def0b23190dd839cff238be451d8ea4082c/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.2.2/285cb9c666f0f0f3dd8a1be04e1f457eb7b15113/jackson-annotations-2.2.2.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-annotations-2.2.2_384480d276b1da6d5524380a8543ceda2db3fb77/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="b3d0809a742c5f768c6aa9efc6decd5c1d6cd227">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-9.0.2_46b0047c4a071cbadf594f94550f3d7119b76eb3/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.2/d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b/jackson-core-2.2.2.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-core-2.2.2_1506d48c222b13975cfb90ad12d81c6bbb64227f/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="9919563cffd8e3732e944d3c437d4b9575a08448">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-9.0.2_637fbd8ffe87ddab5fee8de48a10004075955586/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.0_afa4ae5b50b9f4efa2f189d899da7e1c9f3839fa/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="a511c684ea4c2cf31a3377d51e7677cb76696e07">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-9.0.2_016203027b2fb9e170cffe0ce923439d775c9c29/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/.gradle/caches/modules-2/files-2.1/com.firebase/tubesock/0.0.11/d37cb67277928cf59344b4196af8d9cee1f1a27c/tubesock-0.0.11.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="d37cb67277928cf59344b4196af8d9cee1f1a27c">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/tubesock-0.0.11_79bf2ff56a3591c11a52d085b40baa1d8b801591/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-android/2.3.0/aa504de950abc4b000ef6b6cd127ff355d4c7cb8/firebase-client-android-2.3.0.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="aa504de950abc4b000ef6b6cd127ff355d4c7cb8">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/firebase-client-android-2.3.0_12a7b8790dc7024701d40ef994c84b9e996aac41/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="64876c09a462d3b6fc137211001d8f92e6ea017a">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_c099ff298c207e5546c27b410845e73695b7657a/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.1.0_23c08ad81bd44cd0a1c3e2ff400bd48220007efd/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.1.0_76ffb381a1a6ded60e9cd78ce41234a47d9c2b37/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.1.0_a037a833aa1ff26db7f05f94bd6d0a1a7e791561/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.1.0_880e09fe62778d23d12cd9729d9df3e7378acf0f/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="94d9cedd04b124aed044ac71c451a292856d854c">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-9.0.2_8ed152f9473b17b7a8d77a8b43c4f8da1afb9c2a/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.2.2/3c8f6018eaa72d43b261181e801e6f8676c16ef6/jackson-databind-2.2.2.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-databind-2.2.2_158a394df261f900d93f917b598fbd06260445a2/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.1.0_062899341b4fa8bb54b0ffefba6c7cd093f3df15/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="4022261eeea0d92eb2997a68d2c1f084a16abad9">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-9.0.2_0865b22463df342b06b5eee0173e8d55902c36ce/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="fa472b7cbd3897bf6bed6068ac0b00e494987688">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-9.0.2_b64d5600088de0dce64f7387d18ddf9e17fc2b7f/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/preference-v14/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="6cdbe967aa2b693a0a1f6859091794601c087e5b">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-preference-v14-25.0.1_8964d3b844bd9ee4cc4bea7155ed089f5a0729e2/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="a07818a1ecabdb149998823429cce555af4b9cba">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.jakewharton-butterknife-8.4.0_a73dddfc8c43206ecb01fade0121c62cc1d57f74/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/preference-v7/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="9bcc5d07e3c05d87798e602ad1e6d2a28ce0782d">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-preference-v7-25.0.1_29531992ab31160a0c844b0e82f43d4ee9d23ec3/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-jvm/2.3.0/6e4e83a746e32674d29d37962ec64e01e5be9a10/firebase-client-jvm-2.3.0.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="6e4e83a746e32674d29d37962ec64e01e5be9a10">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/firebase-client-jvm-2.3.0_a4f3f60d90e2650be5dc686f1d7fa9e2aa4e8d1a/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-common/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="568d5bda0b4d51f90d978ace369bb9ad024d2057">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-common-9.0.2_b5e068b6bb3ea9cfe85e379f724deb76ef9d2eeb/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="aec1bc54964a85d851c2c1b1cb7f90f7dbd755ab">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-9.0.2_382685f2591c05512262d95c4d535d9b6ae31534/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="51a11c41a08f099a204e1b8dcc04f27217de50ec">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-9.0.2_4a98368bed02107e66f7ee6d14befe938df58628/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.1.0_5403869ea0cae0fdddd3b24f7cd254d054cd8fbc/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.1.0_d2853003105b56af50f3ae4a9a618881569c41ac/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.takisoft.fix/preference-v7/25.0.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="633643588a572deb831c940072862030aec5fc60">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.takisoft.fix-preference-v7-25.0.1.0_4dd2ded684b0e79712dcc7fa60b8dc6138b95585/classes.dex" />
+    </item>
+    <item
+        jar="/home/rohanagarwal94/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.4.0/ea392375cf9ff59234a82e7928a204215ccc98cd/butterknife-annotations-8.4.0.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
+        <dex dex="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/transforms/dex/debug/folders/1000/10/butterknife-annotations-8.4.0_15aeaee852f53d06708687079835b9c7928936dd/classes.dex" />
+    </item>
+
+</items>
