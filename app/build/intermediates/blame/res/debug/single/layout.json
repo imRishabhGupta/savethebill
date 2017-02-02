@@ -16,16 +16,16 @@
         "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/abc_action_bar_view_list_nav_layout.xml"
     },
     {
-        "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/activity_add_bill.xml",
-        "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/src/main/res/layout/activity_add_bill.xml"
+        "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/design_navigation_item_header.xml",
+        "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/res/layout/design_navigation_item_header.xml"
     },
     {
         "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/preference_widget_checkbox.xml",
         "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/preference-v7/25.0.1/res/layout/preference_widget_checkbox.xml"
     },
     {
-        "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/design_navigation_item_header.xml",
-        "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/res/layout/design_navigation_item_header.xml"
+        "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/activity_add_bill.xml",
+        "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/src/main/res/layout/activity_add_bill.xml"
     },
     {
         "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_header_item_layout.xml",
@@ -124,12 +124,12 @@
         "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/src/main/res/layout/activity_all_bills.xml"
     },
     {
-        "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
-        "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/abc_popup_menu_item_layout.xml"
-    },
-    {
         "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/content_edit_bill.xml",
         "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/src/main/res/layout/content_edit_bill.xml"
+    },
+    {
+        "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
+        "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/abc_popup_menu_item_layout.xml"
     },
     {
         "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
@@ -276,12 +276,12 @@
         "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/notification_action.xml"
     },
     {
-        "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
-        "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/res/layout/design_navigation_menu_item.xml"
-    },
-    {
         "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/list_row.xml",
         "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/src/main/res/layout/list_row.xml"
+    },
+    {
+        "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
+        "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/res/layout/design_navigation_menu_item.xml"
     },
     {
         "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",

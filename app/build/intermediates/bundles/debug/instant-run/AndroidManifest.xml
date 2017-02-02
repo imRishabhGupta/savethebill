@@ -46,7 +46,7 @@
         </activity>
         <activity
             android:name="com.example.user.savethebill.ForgotPasswordActivity"
-            android:theme="@style/AppTheme"
+            android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name="com.example.user.savethebill.AllBills"
@@ -77,7 +77,7 @@
         </activity>
         <activity
             android:name="com.example.user.savethebill.SignUpActivity"
-            android:theme="@style/AppTheme"
+            android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name="com.example.user.savethebill.EditBill"

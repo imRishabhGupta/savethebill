@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ScrollView
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+    <LinearLayout
+        android:id="@+id/activity_login"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorAccent">
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:weightSum="1"
+        >
+
+        <ImageView
+            android:layout_width="174dp"
+            android:layout_height="174dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="@string/activity_login_imageview_description"
+            android:src="@drawable/bill_logo"
+            android:layout_marginTop="30dp"/>
 
 
             <android.support.design.widget.TextInputLayout
@@ -65,9 +80,10 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_gravity="center_horizontal"
                 android:background="@color/md_grey_300"
                 android:text="@string/sign_up"
                 android:textColor="@color/colorPrimary" />
+    </LinearLayout>
     </ScrollView>
 
-</LinearLayout>

@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -110,6 +111,10 @@ public class SignUpActivity extends AppCompatActivity {
                         if (!task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(), "Authentication failed." + task.getException(),
                                     Toast.LENGTH_SHORT).show();
+                            if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                                Toast.makeText(getApplicationContext(), "User with this email already exist.", Toast.LENGTH_SHORT).show();
+                            }
+
                         } else {
                             startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
                             finish();

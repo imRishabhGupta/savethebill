@@ -30,7 +30,7 @@
         <activity
             android:name=".ForgotPasswordActivity"
             android:windowSoftInputMode="stateHidden|adjustResize"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AllBills"
             android:label="@string/title_activity_all_bills"
@@ -61,7 +61,7 @@
         <activity
             android:name=".SignUpActivity"
             android:windowSoftInputMode="stateHidden|adjustResize"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".EditBill"
             android:label="@string/title_activity_edit_bill"

@@ -14,11 +14,13 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -95,6 +97,11 @@ public class LoginActivity extends AppCompatActivity {
                             if (password.getEditText().getText().toString().length() < 6) {
                                 password.setError(getString(R.string.minimum_password));
                             } else {
+
+                                if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                                    Toast.makeText(getApplicationContext(), "User with this email already exist.", Toast.LENGTH_SHORT).show();
+                                }
+
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                                 builder.setTitle(R.string.password_invalid_title);
                                 builder.setMessage(R.string.password_invalid)
