@@ -99,7 +99,8 @@ public class EditBill extends AppCompatActivity {
                 String image=data[2];
                 if(image!=null&&!image.equals("")){
                     byte[] imageAsBytes = Base64.decode(image.getBytes(), Base64.DEFAULT);
-                    imgPreview.setImageBitmap(BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
+                    bitmap=BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+                    imgPreview.setImageBitmap(bitmap);
                 }
             }
 
@@ -117,7 +118,6 @@ public class EditBill extends AppCompatActivity {
                 if (ContextCompat.checkSelfPermission(EditBill.this,
                         Manifest.permission.CAMERA)
                         != PackageManager.PERMISSION_GRANTED) {
-
 
                     ActivityCompat.requestPermissions(EditBill.this,
                             new String[]{Manifest.permission.CAMERA},1);
@@ -290,12 +290,12 @@ public class EditBill extends AppCompatActivity {
         progressDialog.setMessage("Editing bill...");
         progressDialog.show();
 
-        final Movie bill=new Movie();
+        final Bill bill=new Bill();
         bill.setBillName(a.getText().toString());
         bill.setType(b.getText().toString());
         bill.setNameofowner(c.getText().toString());
-        bill.setLastdate(fromDateEtxt.getText().toString());
-        bill.setGuarantee(toDateEtxt.getText().toString());
+        bill.setEndDate2(fromDateEtxt.getText().toString());
+        bill.setEndDate1(toDateEtxt.getText().toString());
         if(bitmap!=null)
         {
             storeImageToFirebase();

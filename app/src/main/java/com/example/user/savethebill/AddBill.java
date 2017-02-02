@@ -91,6 +91,7 @@ public class AddBill extends AppCompatActivity {
 
         toDateEtxt = (EditText) findViewById(R.id.etxt_todate);
         toDateEtxt.setInputType(InputType.TYPE_NULL);
+
         setDateTimeField();
 
         firebase = new Firebase("https://savethebill.firebaseio.com");
@@ -137,24 +138,24 @@ public class AddBill extends AppCompatActivity {
             }
         });
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-    }
-
-    private void setDateTimeField() {
         fromDateEtxt.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
-                fromDatePickerDialog.show();
+            public void onClick(View v) {fromDatePickerDialog.show();
             }
         });
+
         toDateEtxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 toDatePickerDialog.show();
             }
         });
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+    }
+
+    private void setDateTimeField() {
 
         Calendar newCalendar = Calendar.getInstance();
         fromDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
@@ -217,8 +218,6 @@ public class AddBill extends AppCompatActivity {
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] bytes = baos.toByteArray();
         base64Image = Base64.encodeToString(bytes, Base64.DEFAULT);
-        System.out.println(base64Image);
-
     }
 
     private void previewCapturedImage() {
@@ -262,12 +261,12 @@ public class AddBill extends AppCompatActivity {
         b=(AutoCompleteTextView)findViewById(R.id.autoCompleteTextView);
         c=(EditText)findViewById(R.id.owner);
 
-         final Movie bill=new Movie();
+         final Bill bill=new Bill();
         bill.setBillName(a.getText().toString());
         bill.setType(b.getText().toString());
         bill.setNameofowner(c.getText().toString());
-        bill.setLastdate(fromDateEtxt.getText().toString());
-        bill.setGuarantee(toDateEtxt.getText().toString());
+        bill.setEndDate1(fromDateEtxt.getText().toString());
+        bill.setEndDate2(toDateEtxt.getText().toString());
         if(bitmap!=null)
         {
         storeImageToFirebase();
@@ -281,23 +280,20 @@ public class AddBill extends AppCompatActivity {
         notificationIntent.putExtra("name",a.getText().toString());
         notificationIntent.putExtra("type",b.getText().toString());
 
-        setDateTimeField();
-
         if(cal1!=null&&cal1.getTimeInMillis()<=System.currentTimeMillis()){
             Toast.makeText(AddBill.this, "Date should be greater than current time.", Toast.LENGTH_SHORT).show();
             return;
         }
-        if(fromDateEtxt.getText().toString().length()>0) {
+        if(cal1!=null&&fromDateEtxt.getText().toString().length()>0) {
           setRepeatingAlarm(notificationIntent,cal1);
         }
         if(cal2!=null&&cal2.getTimeInMillis()<=System.currentTimeMillis()){
             Toast.makeText(AddBill.this, "Date should be greater than current time.", Toast.LENGTH_SHORT).show();
             return;
         }
-        if(toDateEtxt.getText().toString().length()>0) {
+        if(cal2!=null&&toDateEtxt.getText().toString().length()>0) {
             setRepeatingAlarm(notificationIntent,cal2);
         }
-        System.out.println("got"+count);
 
         ref.child("Bill"+count).setValue(bill);
         Toast.makeText(getApplicationContext(),"Bill added successfully.",Toast.LENGTH_SHORT).show();
@@ -309,10 +305,9 @@ public class AddBill extends AppCompatActivity {
     public void setRepeatingAlarm(Intent notificationIntent, Calendar cal) {
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        if(cal==null)
-            return;
+
         notificationIntent.putExtra("daysleft",cal.getTime().getTime());
-        //Log.d("addbill",String.valueOf(cal.getTime().getTime()));
+
         int id = (int) System.currentTimeMillis();
         notificationIntent.putExtra("id",id);
 
@@ -320,7 +315,7 @@ public class AddBill extends AppCompatActivity {
 
         Calendar calx = Calendar.getInstance();
         calx.set(Calendar.HOUR_OF_DAY, 10);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calx.getTimeInMillis(), 4 * 24 * 60 * 60 * 1000, broadcast2);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calx.getTimeInMillis(),  2 * 60 * 1000, broadcast2);
 
         Intent cancellationIntent = new Intent(this, CancelAlarmBroadcastReceiver.class);
         cancellationIntent.setAction("android.media.action.DISPLAY_NOTIFICATION");
@@ -333,6 +328,7 @@ public class AddBill extends AppCompatActivity {
 
         alarmManager.set(AlarmManager.RTC, cal.getTimeInMillis(),cancellationPendingIntent);
     }
+
     public void getData(long c){
         count=c;
     }
