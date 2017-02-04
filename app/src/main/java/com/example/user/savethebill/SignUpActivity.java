@@ -96,6 +96,8 @@ public class SignUpActivity extends AppCompatActivity {
         }
         confirmPassword.setError(null);
         signUp.setEnabled(false);
+
+        //TODO: SOLVE THE PROGRESS DIALOG ISSUE
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Signing up...");
         progressDialog.show();

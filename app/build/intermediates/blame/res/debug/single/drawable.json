@@ -12,12 +12,12 @@
         "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/drawable/common_google_signin_btn_text_light.xml"
     },
     {
-        "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/drawable/list_row_bg.xml",
-        "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/src/main/res/drawable/list_row_bg.xml"
-    },
-    {
         "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_tick_mark_material.xml",
         "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/drawable/abc_seekbar_tick_mark_material.xml"
+    },
+    {
+        "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/drawable/list_row_bg.xml",
+        "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/src/main/res/drawable/list_row_bg.xml"
     },
     {
         "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_internal_bg.xml",
@@ -40,12 +40,12 @@
         "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/drawable/abc_btn_default_mtrl_shape.xml"
     },
     {
-        "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/drawable/abc_btn_colored_material.xml",
-        "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/drawable/abc_btn_colored_material.xml"
-    },
-    {
         "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_indicator_material.xml",
         "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/drawable/abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/drawable/abc_btn_colored_material.xml",
+        "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/drawable/abc_btn_colored_material.xml"
     },
     {
         "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/drawable/abc_btn_borderless_material.xml",

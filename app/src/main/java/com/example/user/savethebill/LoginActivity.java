@@ -13,6 +13,8 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.inputmethod.EditorInfo;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -21,6 +23,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,9 +40,12 @@ public class LoginActivity extends AppCompatActivity {
     TextInputLayout email;
     @BindView(R.id.password)
     TextInputLayout password;
+    @BindView(R.id.email_input)
+    AutoCompleteTextView autocompleteEmail;
     @BindView(R.id.log_in)
     Button logIn;
     private FirebaseAuth auth;
+    private Set<String> savedEmails;
 
 
     @Override
@@ -44,6 +54,14 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_scrolling);
         ButterKnife.bind(this);
         auth = FirebaseAuth.getInstance();
+
+        savedEmails = new HashSet<>();
+        if(PrefManager.getStringSet("saved_emails")!=null) {
+            savedEmails.addAll(PrefManager.getStringSet("saved_emails"));
+            List<String> listOfEmails = new ArrayList<>(savedEmails);
+            autocompleteEmail.setAdapter(new ArrayAdapter<>(this,
+                    android.R.layout.simple_list_item_1, listOfEmails));
+        }
 
         if (auth.getCurrentUser() != null) {
             startActivity(new Intent(LoginActivity.this, AllBills.class));
@@ -79,6 +97,8 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
         email.setError(null);
+
+        //TODO: USE AUTOCOMPLETEVIEW IN EMAIL TEXT INPUT
 
         logIn.setEnabled(false);
         final ProgressDialog progressDialog = new ProgressDialog(this);
@@ -116,6 +136,11 @@ public class LoginActivity extends AppCompatActivity {
                                 Button pbutton = alert.getButton(DialogInterface.BUTTON_POSITIVE);
                                 pbutton.setTextColor(Color.BLUE);                            }
                         } else {
+
+                            //Save email for easy login.
+                            savedEmails.add(email.getEditText().getText().toString());
+                            PrefManager.putStringSet("saved_emails", savedEmails);
+
                             Intent intent = new Intent(LoginActivity.this, AllBills.class);
                             startActivity(intent);
                             finish();

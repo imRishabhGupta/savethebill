@@ -26,7 +26,7 @@ import com.firebase.client.ValueEventListener;
 import java.util.ArrayList;
 
 public class AllBills extends AppCompatActivity {
-    ArrayList<Movie> bills;
+    ArrayList<Bill> bills;
     Firebase ref;
     CustomListAdapter billAdapter;
     ProgressDialog progressDialog;
@@ -71,7 +71,7 @@ public class AllBills extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent intent1 =new Intent(getApplicationContext(),DisplayBill.class);
-                Movie x=bills.get(position);
+                Bill x=bills.get(position);
 
 //                intent1.putExtra("billname",x.getBillName());
 //                intent1.putExtra("type",x.getType());
@@ -103,7 +103,7 @@ void refresh(){
             long count = snapshot.getChildrenCount();
             for (DataSnapshot postSnapshot : snapshot.getChildren()) {
 
-                Movie bill =  postSnapshot.getValue(Movie.class);
+                Bill bill =  postSnapshot.getValue(Bill.class);
                 bills.add(bill);
                 System.out.println(bill.getType() + "  " + bill.getNameofowner());
             }

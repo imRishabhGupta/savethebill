@@ -7,9 +7,16 @@ import com.firebase.client.Firebase;
  */
 public class MyApplication extends android.app.Application {
 
+    private static MyApplication instance;
+
+    public static MyApplication getInstance() {
+        return instance;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
+        instance = this;
         Firebase.setAndroidContext(this);
     }
 }
