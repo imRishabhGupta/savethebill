@@ -6,6 +6,7 @@ import android.app.DatePickerDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -298,6 +299,10 @@ public class AddBill extends AppCompatActivity {
         ref.child("Bill"+count).setValue(bill);
         Toast.makeText(getApplicationContext(),"Bill added successfully.",Toast.LENGTH_SHORT).show();
 
+        SharedPreferences.Editor editor=getSharedPreferences("bills",MODE_PRIVATE).edit();
+        editor.putString(a.getText().toString(), "no");
+        editor.commit();
+
         Intent i=new Intent(getApplicationContext(),AllBills.class);
         startActivity(i);
     }
@@ -311,7 +316,7 @@ public class AddBill extends AppCompatActivity {
         int id = (int) System.currentTimeMillis();
         notificationIntent.putExtra("id",id);
 
-        PendingIntent broadcast2 = PendingIntent.getBroadcast(getApplicationContext(), id, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent broadcast2 = PendingIntent.getBroadcast(getApplicationContext(), 0, notificationIntent,0);
 
         Calendar calx = Calendar.getInstance();
         calx.set(Calendar.HOUR_OF_DAY, 10);
@@ -324,7 +329,7 @@ public class AddBill extends AppCompatActivity {
         cancellationIntent.putExtra("key",broadcast2);
         cal.set(Calendar.HOUR_OF_DAY,10);
 
-        PendingIntent cancellationPendingIntent = PendingIntent.getBroadcast(getApplicationContext(), id, cancellationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent cancellationPendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, cancellationIntent, 0);
 
         alarmManager.set(AlarmManager.RTC, cal.getTimeInMillis(),cancellationPendingIntent);
     }

@@ -2,6 +2,7 @@ package com.example.user.savethebill;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -71,6 +73,17 @@ public class DisplayBill extends AppCompatActivity {
             Intent intent1=new Intent(getApplicationContext(),EditBill.class);
             intent1.putExtra("position",position);
             startActivity(intent1);
+            }
+        });
+
+        Button cancelAlarm=(Button)findViewById(R.id.alarm);
+        cancelAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor=getSharedPreferences("bills",MODE_PRIVATE).edit();
+                editor.putString(billname, "yes");
+                editor.commit();
+                Toast.makeText(DisplayBill.this, "Alarm cancelled successfully.", Toast.LENGTH_SHORT).show();
             }
         });
 

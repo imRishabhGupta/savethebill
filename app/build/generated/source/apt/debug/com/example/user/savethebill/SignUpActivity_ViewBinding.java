@@ -15,7 +15,7 @@ import java.lang.Override;
 public class SignUpActivity_ViewBinding<T extends SignUpActivity> implements Unbinder {
   protected T target;
 
-  private View view2131558532;
+  private View view2131558533;
 
   @UiThread
   public SignUpActivity_ViewBinding(final T target, View source) {
@@ -27,7 +27,7 @@ public class SignUpActivity_ViewBinding<T extends SignUpActivity> implements Unb
     target.confirmPassword = Utils.findRequiredViewAsType(source, R.id.confirm_password, "field 'confirmPassword'", TextInputLayout.class);
     view = Utils.findRequiredView(source, R.id.sign_up, "field 'signUp' and method 'signUp'");
     target.signUp = Utils.castView(view, R.id.sign_up, "field 'signUp'", Button.class);
-    view2131558532 = view;
+    view2131558533 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -47,8 +47,8 @@ public class SignUpActivity_ViewBinding<T extends SignUpActivity> implements Unb
     target.confirmPassword = null;
     target.signUp = null;
 
-    view2131558532.setOnClickListener(null);
-    view2131558532 = null;
+    view2131558533.setOnClickListener(null);
+    view2131558533 = null;
 
     this.target = null;
   }
