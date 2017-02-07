@@ -28,16 +28,16 @@
         "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\preference-v14\\25.0.1\\res\\layout\\preference_category_material.xml"
     },
     {
+        "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\content_display_bill.xml",
+        "source": "E:\\savethebill\\app\\src\\main\\res\\layout\\content_display_bill.xml"
+    },
+    {
         "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\content_add_bill.xml",
         "source": "E:\\savethebill\\app\\src\\main\\res\\layout\\content_add_bill.xml"
     },
     {
         "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
         "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\layout\\design_navigation_item_header.xml"
-    },
-    {
-        "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\content_display_bill.xml",
-        "source": "E:\\savethebill\\app\\src\\main\\res\\layout\\content_display_bill.xml"
     },
     {
         "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\preference_widget_checkbox.xml",
@@ -60,16 +60,16 @@
         "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\notification_template_media.xml"
     },
     {
+        "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\preference_list_fragment.xml",
+        "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\preference-v7\\25.0.1\\res\\layout\\preference_list_fragment.xml"
+    },
+    {
         "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
         "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
     {
         "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\preference_recyclerview.xml",
         "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\preference-v7\\25.0.1\\res\\layout\\preference_recyclerview.xml"
-    },
-    {
-        "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\preference_list_fragment.xml",
-        "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\preference-v7\\25.0.1\\res\\layout\\preference_list_fragment.xml"
     },
     {
         "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\preference_information_material.xml",
@@ -124,12 +124,12 @@
         "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\select_dialog_singlechoice_material.xml"
     },
     {
-        "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_list_menu_item_icon.xml"
-    },
-    {
         "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
         "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_list_menu_item_icon.xml"
     },
     {
         "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
@@ -140,12 +140,12 @@
         "source": "E:\\savethebill\\app\\src\\main\\res\\layout\\activity_display_bill.xml"
     },
     {
-        "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\preference_category.xml",
-        "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\preference-v7\\25.0.1\\res\\layout\\preference_category.xml"
-    },
-    {
         "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
         "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\preference_category.xml",
+        "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\preference-v7\\25.0.1\\res\\layout\\preference_category.xml"
     },
     {
         "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines_media.xml",
@@ -208,12 +208,12 @@
         "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\layout\\design_navigation_item.xml"
     },
     {
-        "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
-        "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_list_menu_item_layout.xml"
-    },
-    {
         "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
         "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
         "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
@@ -280,12 +280,12 @@
         "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\layout\\design_layout_snackbar.xml"
     },
     {
-        "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
-        "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_list_menu_item_radio.xml"
-    },
-    {
         "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_scrolling.xml",
         "source": "E:\\savethebill\\app\\src\\main\\res\\layout\\activity_scrolling.xml"
+    },
+    {
+        "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
         "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
@@ -308,11 +308,11 @@
         "source": "E:\\savethebill\\app\\src\\main\\res\\layout\\activity_forgot_password.xml"
     },
     {
-        "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_title_material.xml",
-        "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_alert_dialog_title_material.xml"
-    },
-    {
         "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_row.xml",
         "source": "E:\\savethebill\\app\\src\\main\\res\\layout\\list_row.xml"
+    },
+    {
+        "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_title_material.xml",
+        "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_alert_dialog_title_material.xml"
     }
 ]

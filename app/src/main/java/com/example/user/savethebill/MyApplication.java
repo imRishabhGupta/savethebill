@@ -1,6 +1,5 @@
 package com.example.user.savethebill;
 
-import com.firebase.client.Firebase;
 
 /**
  * Created by rohanpc on 6/8/2016.
@@ -17,6 +16,6 @@ public class MyApplication extends android.app.Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
-        Firebase.setAndroidContext(this);
+        //Firebase.setAndroidContext(this);
     }
 }

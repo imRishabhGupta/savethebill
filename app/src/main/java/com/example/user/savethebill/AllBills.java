@@ -18,18 +18,25 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class AllBills extends AppCompatActivity {
+
     ArrayList<Bill> bills;
-    Firebase ref;
     CustomListAdapter billAdapter;
     ProgressDialog progressDialog;
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
+    private DatabaseReference mDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,9 +54,14 @@ public class AllBills extends AppCompatActivity {
         });
         System.out.println("testing.....1..2...3..");
 
-        Firebase firebase = new Firebase("https://savethebill.firebaseio.com");
-        ref=new Firebase("https://savethebill.firebaseio.com/"+firebase.getAuth().getUid());
-        ref.keepSynced(true);
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        String uid=mFirebaseUser.getUid();
+        mDatabase = FirebaseDatabase.getInstance().getReference(uid);
+
+        //Firebase firebase = new Firebase("https://savethebill.firebaseio.com");
+        //ref=new Firebase("https://savethebill.firebaseio.com/"+firebase.getAuth().getUid());
+        mDatabase.keepSynced(true);
 
         System.out.println("testing.....1..2...3..");
 
@@ -69,56 +81,43 @@ public class AllBills extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 Intent intent1 =new Intent(getApplicationContext(),DisplayBill.class);
                 Bill x=bills.get(position);
-
-//                intent1.putExtra("billname",x.getBillName());
-//                intent1.putExtra("type",x.getType());
-//                intent1.putExtra("owner",x.getNameofowner());
-//                intent1.putExtra("lastdate",x.getLastdate());
-//                intent1.putExtra("guarantee",x.getGuarantee());
-//                intent1.putExtra("image",x.getImagestring());
                 intent1.putExtra("position",Integer.toString(position));
-
                 startActivity(intent1);
-
             }
         });
-
-
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     }
-void refresh(){
-    bills=new ArrayList<>();
-    bills.clear();
 
-    ref.addValueEventListener(new ValueEventListener() {
-        @Override
-        public void onDataChange(DataSnapshot snapshot) {
+    void refresh(){
+        bills=new ArrayList<>();
+        bills.clear();
 
-            System.out.println("testing.....1..2...3..");
-            long count = snapshot.getChildrenCount();
-            for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
 
-                Bill bill =  postSnapshot.getValue(Bill.class);
-                bills.add(bill);
-                System.out.println(bill.getType() + "  " + bill.getNameofowner());
+                System.out.println("testing.....1..2...3..");
+                long count = snapshot.getChildrenCount();
+                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+
+                    Bill bill =  postSnapshot.getValue(Bill.class);
+                    bills.add(bill);
+                    System.out.println(bill.getType() + "  " + bill.getNameofowner());
+                }
+                System.out.println("The read success: " + count);
+                billAdapter.notifyDataSetChanged();
+                progressDialog.dismiss();
             }
-            System.out.println("The read success: " + count);
-            billAdapter.notifyDataSetChanged();
-            progressDialog.dismiss();
-        }
 
-        @Override
-        public void onCancelled(FirebaseError firebaseError) {
-            System.out.println("The read failed: " + firebaseError.getMessage());
-            progressDialog.dismiss();
-        }
-    });
-}
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getMessage());
+                progressDialog.dismiss();
+            }
+        });
+    }
 
 //    @Override
   //  public void startActivityForResult(Intent intent, int requestCode, Bundle options) {
@@ -155,12 +154,13 @@ void refresh(){
                 return true;
             case R.id.action_logout:
                 AlertDialog.Builder d = new AlertDialog.Builder(this);
-                d.setMessage("Are you sure ?").
+                d.setMessage("Are you sure you want to log out?").
                         setCancelable(false).
                         setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 
+                                mFirebaseAuth.signOut();
                                 Intent intent = new Intent(AllBills.this, LoginActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);

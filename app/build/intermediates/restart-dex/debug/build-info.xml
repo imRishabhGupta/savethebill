@@ -5,75 +5,39 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="434731006454743"
+    timestamp="618510574112139"
     token="-468044569050062489"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="4335" />
+        duration="3664" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="146" />
+        duration="110" />
     <task
         name="verifier"
-        duration="37" />
+        duration="8" />
 
-    <artifact
-        location="E:\savethebill\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
-        type="RESOURCES" />
-    <artifact
-        location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
-        type="DEX" />
-    <artifact
-        location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
-        type="DEX" />
-    <artifact
-        location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_6\classes.dex"
-        type="DEX" />
-    <artifact
-        location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
-        type="DEX" />
     <artifact
         location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_9\classes.dex"
         type="DEX" />
-    <artifact
-        location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
-        type="DEX" />
 
     <build
-        timestamp="432650052178203"
+        timestamp="617628834795431"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="E:\savethebill\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="434731006454743"
+        timestamp="618510574112139"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="E:\savethebill\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
-            type="RESOURCES" />
-        <artifact
-            location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
-            type="DEX" />
-        <artifact
-            location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
-            type="DEX" />
-        <artifact
-            location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_6\classes.dex"
-            type="DEX" />
-        <artifact
-            location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
-            type="DEX" />
-        <artifact
             location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_9\classes.dex"
-            type="DEX" />
-        <artifact
-            location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
             type="DEX" />
     </build>
 

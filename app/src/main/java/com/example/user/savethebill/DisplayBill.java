@@ -14,17 +14,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class DisplayBill extends AppCompatActivity {
 
     private String billname, type, image, endDate1, endDate2, owner;
     private ImageView thumbnail;
     private TextView a,b,c,d,e;
-    private Firebase ref;
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
+    private DatabaseReference mDatabase;
     private ProgressDialog progressDialog;
     private String[] data=new String[6];
 
@@ -44,14 +49,19 @@ public class DisplayBill extends AppCompatActivity {
         final Intent intent = getIntent();
         final String position=intent.getStringExtra("position");
         System.out.println(position);
-        Firebase firebase = new Firebase("https://savethebill.firebaseio.com");
-        ref=new Firebase("https://savethebill.firebaseio.com/"+ firebase.getAuth().getUid()+"/Bill"+position);
+        //Firebase firebase = new Firebase("https://savethebill.firebaseio.com");
+        //ref=new Firebase("https://savethebill.firebaseio.com/"+ firebase.getAuth().getUid()+"/Bill"+position);
+
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        String uid=mFirebaseUser.getUid();
+        mDatabase = FirebaseDatabase.getInstance().getReference(uid+"/Bill"+position);
 
         progressDialog = new ProgressDialog(DisplayBill.this, ProgressDialog.THEME_HOLO_LIGHT);
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setMessage("Retrieving bill...");
         progressDialog.show();
-        refresh(ref);
+        refresh(mDatabase);
 
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +70,7 @@ public class DisplayBill extends AppCompatActivity {
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog1.setMessage("Deleting bill...");
             progressDialog1.show();
-            ref.removeValue();
+            mDatabase.removeValue();
             progressDialog1.dismiss();
             finish();
             }
@@ -90,7 +100,7 @@ public class DisplayBill extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    void refresh(Firebase ref){
+    void refresh(DatabaseReference ref){
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
@@ -119,7 +129,7 @@ public class DisplayBill extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(FirebaseError firebaseError) {
+            public void onCancelled(DatabaseError firebaseError) {
                 progressDialog.dismiss();
                 System.out.println("The read failed: " + firebaseError.getMessage());
             }

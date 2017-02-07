@@ -30,10 +30,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -52,7 +55,9 @@ public class EditBill extends AppCompatActivity {
     String base64Image;
     private DatePickerDialog fromDatePickerDialog;
     private DatePickerDialog toDatePickerDialog;
-    Firebase firebase,ref;
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
+    private DatabaseReference mDatabase;
     String[] data=new String[6];
     private SimpleDateFormat dateFormatter;
     private Uri fileUri;
@@ -75,7 +80,7 @@ public class EditBill extends AppCompatActivity {
 
         initViews();
 
-        ref.addValueEventListener(new ValueEventListener() {
+        mDatabase.addValueEventListener(new ValueEventListener() {
             long cd;
 
             @Override
@@ -105,7 +110,7 @@ public class EditBill extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(FirebaseError firebaseError) {
+            public void onCancelled(DatabaseError firebaseError) {
                 System.out.println("The read failed: " + firebaseError.getMessage());
             }
         });
@@ -142,8 +147,12 @@ public class EditBill extends AppCompatActivity {
         final Intent intent = getIntent();
         position=intent.getStringExtra("position");
 
-        firebase = new Firebase("https://savethebill.firebaseio.com");
-        ref=new Firebase("https://savethebill.firebaseio.com/"+firebase.getAuth().getUid()+"/Bill"+position);
+        //firebase = new Firebase("https://savethebill.firebaseio.com");
+        //ref=new Firebase("https://savethebill.firebaseio.com/"+firebase.getAuth().getUid()+"/Bill"+position);
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        String uid=mFirebaseUser.getUid();
+        mDatabase = FirebaseDatabase.getInstance().getReference(uid+"/Bill"+position);
 
         a=(EditText)findViewById(R.id.bill_name);
         b=(AutoCompleteTextView)findViewById(R.id.autoCompleteTextView);
@@ -326,9 +335,13 @@ public class EditBill extends AppCompatActivity {
         }
         System.out.println("got"+count);
 
-        ref.removeValue();
-        ref = new Firebase("https://savethebill.firebaseio.com/" + firebase.getAuth().getUid());
-        ref.child("Bill"+position).setValue(bill);
+        mDatabase.removeValue();
+        //ref = new Firebase("https://savethebill.firebaseio.com/" + firebase.getAuth().getUid());
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        String uid=mFirebaseUser.getUid();
+        mDatabase = FirebaseDatabase.getInstance().getReference(uid+"/Bill"+position);
+        mDatabase.child("Bill"+position).setValue(bill);
         progressDialog.dismiss();
         Toast.makeText(getApplicationContext(),"Bill edited successfully.",Toast.LENGTH_SHORT).show();
 

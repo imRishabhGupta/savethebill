@@ -30,10 +30,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -44,7 +47,9 @@ import java.util.Locale;
 
 public class AddBill extends AppCompatActivity {
 
-    Firebase firebase,ref;
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
+    private DatabaseReference mDatabase;
     private  EditText a,c;
     private Bitmap bitmap;
     String base64Image;
@@ -95,9 +100,13 @@ public class AddBill extends AppCompatActivity {
 
         setDateTimeField();
 
-        firebase = new Firebase("https://savethebill.firebaseio.com");
-        ref = new Firebase("https://savethebill.firebaseio.com/" + firebase.getAuth().getUid());
-        ref.addValueEventListener(new ValueEventListener() {
+        //firebase = new Firebase("https://savethebill.firebaseio.com");
+        //ref = new Firebase("https://savethebill.firebaseio.com/" + firebase.getAuth().getUid());
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        String uid=mFirebaseUser.getUid();
+        mDatabase = FirebaseDatabase.getInstance().getReference(uid);
+        mDatabase.addValueEventListener(new ValueEventListener() {
             long cd;
 
             @Override
@@ -108,7 +117,7 @@ public class AddBill extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(FirebaseError firebaseError) {
+            public void onCancelled(DatabaseError firebaseError) {
                 System.out.println("The read failed: " + firebaseError.getMessage());
             }
         });
@@ -296,7 +305,7 @@ public class AddBill extends AppCompatActivity {
             setRepeatingAlarm(notificationIntent,cal2);
         }
 
-        ref.child("Bill"+count).setValue(bill);
+        mDatabase.child("Bill"+count).setValue(bill);
         Toast.makeText(getApplicationContext(),"Bill added successfully.",Toast.LENGTH_SHORT).show();
 
         SharedPreferences.Editor editor=getSharedPreferences("bills",MODE_PRIVATE).edit();
