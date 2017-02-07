@@ -20,8 +20,14 @@ CancelAlarmBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Bundle bundle=intent.getExtras();
+        String name=bundle.getString("name");
+        Log.v("CancelAlarm",name);
         SharedPreferences.Editor editor=context.getSharedPreferences("bills",MODE_PRIVATE).edit();
         editor.putString(bundle.getString("name"), "yes");
+
         editor.commit();
+        SharedPreferences preferences=context.getSharedPreferences("bills",Context.MODE_PRIVATE);
+        String cancel=preferences.getString(bundle.getString("name"),null);
+        Log.v("CancelAlarm","cancellation in progress "+bundle.getString("name")+ cancel);
     }
 }
