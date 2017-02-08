@@ -308,10 +308,6 @@ public class AddBill extends AppCompatActivity {
         mDatabase.child("Bill"+count).setValue(bill);
         Toast.makeText(getApplicationContext(),"Bill added successfully.",Toast.LENGTH_SHORT).show();
 
-        SharedPreferences.Editor editor=getSharedPreferences("bills",MODE_PRIVATE).edit();
-        editor.putString(a.getText().toString(), "no");
-        editor.commit();
-
         Intent i=new Intent(getApplicationContext(),AllBills.class);
         startActivity(i);
     }
@@ -325,20 +321,25 @@ public class AddBill extends AppCompatActivity {
         int id = (int) System.currentTimeMillis();
         notificationIntent.putExtra("id",id);
 
-        PendingIntent broadcast2 = PendingIntent.getBroadcast(getApplicationContext(), 0, notificationIntent,0);
+        PendingIntent broadcast2 = PendingIntent.getBroadcast(getApplicationContext(), id, notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+
+        SharedPreferences.Editor editor=getSharedPreferences("bills",MODE_PRIVATE).edit();
+        editor.putString(a.getText().toString()+id, "no");
+        editor.commit();
 
         Calendar calx = Calendar.getInstance();
-        calx.set(Calendar.HOUR_OF_DAY, 10);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calx.getTimeInMillis(),  2 * 60 * 1000, broadcast2);
+        calx.set(Calendar.MINUTE, 15);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calx.getTimeInMillis(), 60 * 1000, broadcast2);
 
         Intent cancellationIntent = new Intent(this, CancelAlarmBroadcastReceiver.class);
-        cancellationIntent.setAction("android.media.action.DISPLAY_NOTIFICATION");
+        //cancellationIntent.setAction("android.media.action.DISPLAY_NOTIFICATION");
+        cancellationIntent.putExtra("name",notificationIntent.getStringExtra("name"));
 
         Log.d("AddBill","ABOUT TO REACH");
         cancellationIntent.putExtra("key",broadcast2);
         cal.set(Calendar.HOUR_OF_DAY,10);
 
-        PendingIntent cancellationPendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, cancellationIntent, 0);
+        PendingIntent cancellationPendingIntent = PendingIntent.getBroadcast(getApplicationContext(), id, cancellationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         alarmManager.set(AlarmManager.RTC, cal.getTimeInMillis(),cancellationPendingIntent);
     }

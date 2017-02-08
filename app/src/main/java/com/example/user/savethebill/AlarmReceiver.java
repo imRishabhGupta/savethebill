@@ -37,8 +37,8 @@ AlarmReceiver extends BroadcastReceiver {
         id=bundle.getInt("id");
 
         SharedPreferences preferences=context.getSharedPreferences("bills",Context.MODE_PRIVATE);
-        String cancel=preferences.getString(billname,null);
-        Log.d("AlarmReceiver",cancel+" "+ billname);
+        String cancel=preferences.getString(billname+id,null);
+        Log.d("AlarmReceiver",cancel+" "+ billname+id);
         if(cancel.equals("no")){
 
             Date setDate= new Date();
@@ -59,7 +59,7 @@ AlarmReceiver extends BroadcastReceiver {
 
             Intent cancellationIntent = new Intent(context, CancelAlarmBroadcastReceiver.class);
             //cancellationIntent.setAction("android.media.action.DISPLAY_NOTIFICATION");
-            cancellationIntent.putExtra("name",billname);
+            cancellationIntent.putExtra("name",billname+id);
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
 
@@ -68,7 +68,7 @@ AlarmReceiver extends BroadcastReceiver {
                     .setTicker(type + "Alert!")
                     .setDefaults(Notification.DEFAULT_SOUND)
                     .setSmallIcon(R.mipmap.ic_launcher)
-                    .addAction(R.mipmap.ic_launcher,"Stop",PendingIntent.getBroadcast(context,0,cancellationIntent,0))
+                    .addAction(R.mipmap.ic_launcher,"Stop",PendingIntent.getBroadcast(context,id,cancellationIntent,PendingIntent.FLAG_UPDATE_CURRENT))
                     .setContentIntent(pendingIntent).build();
 
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -77,7 +77,7 @@ AlarmReceiver extends BroadcastReceiver {
         else {
             AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             Log.d("cancelAlarmReceiver","REACHED");
-            am.cancel(PendingIntent.getBroadcast(context,0,intent,0));
+            am.cancel(PendingIntent.getBroadcast(context,id,intent,PendingIntent.FLAG_UPDATE_CURRENT));
         }
     }
 }
