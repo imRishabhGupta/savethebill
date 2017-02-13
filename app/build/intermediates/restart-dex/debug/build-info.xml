@@ -5,36 +5,43 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="685051579265917"
+    timestamp="3955560718408"
     token="-468044569050062489"
     verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="3608" />
+        duration="3395" />
     <task
         name="instant-run-dex"
-        duration="1301" />
+        duration="1099" />
     <task
         name="instant-run-transform"
-        duration="127" />
+        duration="361" />
     <task
         name="verifier"
-        duration="11" />
+        duration="32" />
 
     <artifact
         location="E:\savethebill\app\build\intermediates\reload-dex\debug\classes.dex"
         type="RELOAD_DEX" />
 
     <build
-        timestamp="684418151253570"
+        timestamp="2387357321613"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="E:\savethebill\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="685051579265917"
+        timestamp="3630666567866"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_9\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="3955560718408"
         verifier="COMPATIBLE" >
         <artifact
             location="E:\savethebill\app\build\intermediates\reload-dex\debug\classes.dex"

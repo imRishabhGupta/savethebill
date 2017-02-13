@@ -113,7 +113,7 @@ public class AddBill extends AppCompatActivity {
             public void onDataChange(DataSnapshot snapshot) {
                 cd = snapshot.getChildrenCount();
                 System.out.println("The read success: " + cd);
-                getData(cd);
+                setCount(cd);
             }
 
             @Override
@@ -295,14 +295,14 @@ public class AddBill extends AppCompatActivity {
             return;
         }
         if(cal1!=null&&fromDateEtxt.getText().toString().length()>0) {
-          setRepeatingAlarm(notificationIntent,cal1);
+          setRepeatingAlarm(notificationIntent,cal1, bill, 1);
         }
         if(cal2!=null&&cal2.getTimeInMillis()<=System.currentTimeMillis()){
             Toast.makeText(AddBill.this, "Date should be greater than current time.", Toast.LENGTH_SHORT).show();
             return;
         }
         if(cal2!=null&&toDateEtxt.getText().toString().length()>0) {
-            setRepeatingAlarm(notificationIntent,cal2);
+            setRepeatingAlarm(notificationIntent,cal2, bill, 2);
         }
 
         mDatabase.child("Bill"+count).setValue(bill);
@@ -312,7 +312,7 @@ public class AddBill extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void setRepeatingAlarm(Intent notificationIntent, Calendar cal) {
+    public void setRepeatingAlarm(Intent notificationIntent, Calendar cal, Bill bill,int number) {
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
@@ -320,6 +320,10 @@ public class AddBill extends AppCompatActivity {
 
         int id = (int) System.currentTimeMillis();
         notificationIntent.putExtra("id",id);
+        if(number==1)
+            bill.setId1(id+"");
+        else if(number==2)
+            bill.setId2(id+"");
 
         PendingIntent broadcast2 = PendingIntent.getBroadcast(getApplicationContext(), id, notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -344,7 +348,7 @@ public class AddBill extends AppCompatActivity {
         alarmManager.set(AlarmManager.RTC, cal.getTimeInMillis(),cancellationPendingIntent);
     }
 
-    public void getData(long c){
+    public void setCount(long c){
         count=c;
     }
 

@@ -123,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:text="Delete"
                 android:id="@+id/button"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"/>
             <Button
                 android:layout_width="wrap_content"
@@ -134,10 +134,19 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Stop Alarm"
+        android:text="Alarm 1"
         android:layout_marginTop="10dp"
-        android:id="@+id/alarm"/>
+        android:visibility="gone"
+        android:id="@+id/alarm1"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alarm 2"
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        android:id="@+id/alarm2"/>
 </LinearLayout>
+
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>

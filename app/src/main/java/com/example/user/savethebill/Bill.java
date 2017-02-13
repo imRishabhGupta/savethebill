@@ -6,18 +6,20 @@ package com.example.user.savethebill;
 
 
 public class Bill {
-    private String bill_name, type , imagestring , nameofowner , endDate2, endDate1;
+    private String bill_name, endDate1, endDate2, id1, id2, imagestring , nameofowner, type;
 
 
     public Bill() {
     }
 
-    public Bill(String bill_name, String type, String imagestring, String nameofowner, String endDate2, String gaurantee) {
+    public Bill(String bill_name, String type, String imagestring, String nameofowner, String endDate2, String endDate1, String id1, String id2) {
         this.bill_name = bill_name;
         this.imagestring = imagestring;
         this.type = type;
         this.nameofowner = nameofowner;
         this.endDate2 = endDate2;
+        this.id1 = id1;
+        this.id2=id2;
         this.endDate1 = endDate1;
     }
 
@@ -68,6 +70,19 @@ public class Bill {
     }
 
 
+    public String getId1() {
+        return id1;
+    }
 
+    public void setId1(String id1) {
+        this.id1 = id1;
+    }
 
+    public String getId2() {
+        return id2;
+    }
+
+    public void setId2(String id2) {
+        this.id2 = id2;
+    }
 }
