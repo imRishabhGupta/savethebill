@@ -59,7 +59,7 @@ public class EditBill extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mFirebaseUser;
     private DatabaseReference mDatabase;
-    String[] data=new String[6];
+    String[] data=new String[8];
     private SimpleDateFormat dateFormatter;
     private Uri fileUri;
     Calendar cal1,cal2;
@@ -354,7 +354,7 @@ public class EditBill extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
         String uid=mFirebaseUser.getUid();
-        mDatabase = FirebaseDatabase.getInstance().getReference(uid+"/Bill"+position);
+        mDatabase = FirebaseDatabase.getInstance().getReference(uid);
         mDatabase.child("Bill"+position).setValue(bill);
         progressDialog.dismiss();
         Toast.makeText(getApplicationContext(),"Bill edited successfully.",Toast.LENGTH_SHORT).show();
@@ -362,6 +362,7 @@ public class EditBill extends AppCompatActivity {
         Intent i=new Intent(getApplicationContext(),DisplayBill.class);
         i.putExtra("position",position);
         startActivity(i);
+        finish();
     }
 
     public void setRepeatingAlarm(Intent notificationIntent, Calendar cal, Bill bill,int number) {

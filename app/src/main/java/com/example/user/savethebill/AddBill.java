@@ -310,6 +310,7 @@ public class AddBill extends AppCompatActivity {
 
         Intent i=new Intent(getApplicationContext(),AllBills.class);
         startActivity(i);
+        finish();
     }
 
     public void setRepeatingAlarm(Intent notificationIntent, Calendar cal, Bill bill,int number) {
@@ -386,5 +387,11 @@ public class AddBill extends AppCompatActivity {
         }
 
         return mediaFile;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }
