@@ -27,14 +27,14 @@ import com.google.firebase.database.ValueEventListener;
 public class DisplayBill extends AppCompatActivity {
 
     private static final String TAG = DisplayBill.class.getSimpleName();
-    private String billname, type, imagestring, endDate1, endDate2, nameofowner, id1, id2;
+    private String billname, type, imagestring, endDate1, endDate2, nameofowner, id1, id2,id;
     private ImageView thumbnail;
     private TextView a,b,c,d,e;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mFirebaseUser;
     private DatabaseReference mDatabase;
     private ProgressDialog progressDialog;
-    private String[] data=new String[8];
+    private String[] data=new String[9];
     private Button cancelAlarm1,cancelAlarm2;
 
     @Override
@@ -77,13 +77,13 @@ public class DisplayBill extends AppCompatActivity {
             progressDialog1.show();
             mDatabase.removeValue();
             SharedPreferences preferences=getSharedPreferences("bills", Context.MODE_PRIVATE);
-            String cancel1=preferences.getString(billname+id1,null);
-            String cancel2=preferences.getString(billname+id2,null);
+            String cancel1=preferences.getString(id+id1,null);
+            String cancel2=preferences.getString(id+id2,null);
             SharedPreferences.Editor editor=getSharedPreferences("bills",MODE_PRIVATE).edit();
-            if(cancel1!=null)
-                editor.putString(billname+id2, "yes");
-            if(cancel2!=null)
-                editor.putString(billname+id1, "yes");
+            if(cancel1.equals("no"))
+                editor.putString(id+id1, "yes");
+            if(cancel2.equals("no"))
+                editor.putString(id+id2, "yes");
             editor.commit();
             progressDialog1.dismiss();
             finish();
@@ -97,6 +97,7 @@ public class DisplayBill extends AppCompatActivity {
             Intent intent1=new Intent(getApplicationContext(),EditBill.class);
             intent1.putExtra("position",position);
             startActivity(intent1);
+                finish();
             }
         });
 
@@ -105,7 +106,7 @@ public class DisplayBill extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor=getSharedPreferences("bills",MODE_PRIVATE).edit();
-                editor.putString(billname+id1, "yes");
+                editor.putString(id+id1, "yes");
                 editor.commit();
                 Toast.makeText(DisplayBill.this, "Alarm 1 cancelled successfully.", Toast.LENGTH_SHORT).show();
             }
@@ -116,22 +117,11 @@ public class DisplayBill extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor=getSharedPreferences("bills",MODE_PRIVATE).edit();
-                editor.putString(billname+id2, "yes");
+                editor.putString(id+id2, "yes");
                 editor.commit();
                 Toast.makeText(DisplayBill.this, "Alarm 2 cancelled successfully.", Toast.LENGTH_SHORT).show();
             }
         });
-
-        SharedPreferences preferences=getSharedPreferences("bills", Context.MODE_PRIVATE);
-        String cancel1=preferences.getString(billname+id1,null);
-        String cancel2=preferences.getString(billname+id2,null);
-
-        if(cancel1!=null){
-            cancelAlarm1.setVisibility(View.VISIBLE);
-        }
-        if(cancel2!=null){
-            cancelAlarm2.setVisibility(View.VISIBLE);
-        }
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -150,11 +140,22 @@ public class DisplayBill extends AppCompatActivity {
                 billname=data[0];
                 endDate1 =data[1];
                 endDate2 =data[2];
-                id1=data[3];
-                id2=data[4];
-                imagestring =data[5];
-                nameofowner =data[6];
-                type=data[7];
+                id=data[3];
+                id1=data[4];
+                id2=data[5];
+                imagestring =data[6];
+                nameofowner =data[7];
+                type=data[8];
+                SharedPreferences preferences=getSharedPreferences("bills", Context.MODE_PRIVATE);
+                String cancel1=preferences.getString(id+id1,null);
+                String cancel2=preferences.getString(id+id2,null);
+
+                if(cancel1!=null&&cancel1.equals("no")){
+                    cancelAlarm1.setVisibility(View.VISIBLE);
+                }
+                if(cancel2!=null&&cancel2.equals("no")){
+                    cancelAlarm2.setVisibility(View.VISIBLE);
+                }
 
                 a.setText(billname);
                 b.setText(nameofowner);

@@ -290,6 +290,10 @@ public class AddBill extends AppCompatActivity {
         notificationIntent.putExtra("name",a.getText().toString());
         notificationIntent.putExtra("type",b.getText().toString());
 
+        SharedPreferences preferences=getSharedPreferences("bills",MODE_PRIVATE);
+        long bill_count=preferences.getLong("bill_count",0);
+        bill.setId(bill_count+"");
+
         if(cal1!=null&&cal1.getTimeInMillis()<=System.currentTimeMillis()){
             Toast.makeText(AddBill.this, "Date should be greater than current time.", Toast.LENGTH_SHORT).show();
             return;
@@ -305,7 +309,10 @@ public class AddBill extends AppCompatActivity {
             setRepeatingAlarm(notificationIntent,cal2, bill, 2);
         }
 
-        mDatabase.child("Bill"+count).setValue(bill);
+        SharedPreferences.Editor editor=getSharedPreferences("bills",MODE_PRIVATE).edit();
+        editor.putLong("bill_count",bill_count+1);
+        editor.commit();
+        mDatabase.child("Bill"+bill_count).setValue(bill);
         Toast.makeText(getApplicationContext(),"Bill added successfully.",Toast.LENGTH_SHORT).show();
 
         Intent i=new Intent(getApplicationContext(),AllBills.class);
@@ -321,6 +328,7 @@ public class AddBill extends AppCompatActivity {
 
         int id = (int) System.currentTimeMillis();
         notificationIntent.putExtra("id",id);
+        notificationIntent.putExtra("bill_id",bill.getId());
         if(number==1)
             bill.setId1(id+"");
         else if(number==2)
@@ -329,7 +337,7 @@ public class AddBill extends AppCompatActivity {
         PendingIntent broadcast2 = PendingIntent.getBroadcast(getApplicationContext(), id, notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
 
         SharedPreferences.Editor editor=getSharedPreferences("bills",MODE_PRIVATE).edit();
-        editor.putString(a.getText().toString()+id, "no");
+        editor.putString(bill.getId()+id, "no");
         editor.commit();
 
         Calendar calx = Calendar.getInstance();

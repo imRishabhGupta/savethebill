@@ -56,12 +56,12 @@
         "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\drawable\\abc_cab_background_internal_bg.xml"
     },
     {
-        "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\preference_list_divider_material.xml",
-        "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\preference-v14\\25.0.1\\res\\drawable\\preference_list_divider_material.xml"
-    },
-    {
         "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
         "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\preference_list_divider_material.xml",
+        "source": "E:\\savethebill\\app\\build\\intermediates\\exploded-aar\\com.android.support\\preference-v14\\25.0.1\\res\\drawable\\preference_list_divider_material.xml"
     },
     {
         "merged": "E:\\savethebill\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",

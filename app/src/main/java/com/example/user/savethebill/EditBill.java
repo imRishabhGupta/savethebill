@@ -53,13 +53,13 @@ public class EditBill extends AppCompatActivity {
     AutoCompleteTextView b;
     private Bitmap bitmap;
     String base64Image;
-    private String billname, type, imagestring, endDate1, endDate2, nameofowner, id1, id2;
+    private String billname, type, imagestring, endDate1, endDate2, nameofowner, id1, id2, id;
     private DatePickerDialog fromDatePickerDialog;
     private DatePickerDialog toDatePickerDialog;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mFirebaseUser;
     private DatabaseReference mDatabase;
-    String[] data=new String[8];
+    String[] data=new String[9];
     private SimpleDateFormat dateFormatter;
     private Uri fileUri;
     Calendar cal1,cal2;
@@ -99,11 +99,12 @@ public class EditBill extends AppCompatActivity {
                 billname=data[0];
                 endDate1 =data[1];
                 endDate2 =data[2];
-                id1=data[3];
-                id2=data[4];
-                imagestring =data[5];
-                nameofowner =data[6];
-                type=data[7];
+                id=data[3];
+                id1=data[4];
+                id2=data[5];
+                imagestring =data[6];
+                nameofowner =data[7];
+                type=data[8];
 
                 a.setText(billname);
                 c.setText(nameofowner);
@@ -305,13 +306,13 @@ public class EditBill extends AppCompatActivity {
         progressDialog.show();
 
         SharedPreferences preferences=getSharedPreferences("bills", Context.MODE_PRIVATE);
-        String cancel1=preferences.getString(billname+id1,null);
-        String cancel2=preferences.getString(billname+id2,null);
+        String cancel1=preferences.getString(id+id1,null);
+        String cancel2=preferences.getString(id+id2,null);
         SharedPreferences.Editor editor=getSharedPreferences("bills",MODE_PRIVATE).edit();
         if(cancel1!=null)
-            editor.putString(billname+id2, "yes");
+            editor.putString(id+id2, "yes");
         if(cancel2!=null)
-            editor.putString(billname+id1, "yes");
+            editor.putString(id+id1, "yes");
         editor.commit();
 
         final Bill bill=new Bill();
@@ -355,7 +356,13 @@ public class EditBill extends AppCompatActivity {
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
         String uid=mFirebaseUser.getUid();
         mDatabase = FirebaseDatabase.getInstance().getReference(uid);
-        mDatabase.child("Bill"+position).setValue(bill);
+        SharedPreferences.Editor editor1=getSharedPreferences("bills",MODE_PRIVATE).edit();
+        SharedPreferences preferences1=getSharedPreferences("bills",MODE_PRIVATE);
+        long bill_count=preferences1.getLong("bill_count",0);
+        bill.setId(bill_count+"");
+        editor1.putLong("bill_count",bill_count+1);
+        editor1.commit();
+        mDatabase.child("Bill"+bill_count).setValue(bill);
         progressDialog.dismiss();
         Toast.makeText(getApplicationContext(),"Bill edited successfully.",Toast.LENGTH_SHORT).show();
 
@@ -373,6 +380,7 @@ public class EditBill extends AppCompatActivity {
 
         int id = (int) System.currentTimeMillis();
         notificationIntent.putExtra("id",id);
+        notificationIntent.putExtra("bill_id",bill.getId());
         if(number==1)
             bill.setId1(id+"");
         else if(number==2)
@@ -381,7 +389,7 @@ public class EditBill extends AppCompatActivity {
         PendingIntent broadcast2 = PendingIntent.getBroadcast(getApplicationContext(), id, notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
 
         SharedPreferences.Editor editor=getSharedPreferences("bills",MODE_PRIVATE).edit();
-        editor.putString(a.getText().toString()+id, "no");
+        editor.putString(bill.getId()+id, "no");
         editor.commit();
 
         Calendar calx = Calendar.getInstance();

@@ -83,7 +83,7 @@ public class AllBills extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent1 =new Intent(getApplicationContext(),DisplayBill.class);
                 Bill x=bills.get(position);
-                intent1.putExtra("position",Integer.toString(position));
+                intent1.putExtra("position",x.getId());
                 startActivity(intent1);
             }
         });
@@ -185,5 +185,17 @@ public class AllBills extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        billAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        billAdapter.notifyDataSetChanged();
     }
 }

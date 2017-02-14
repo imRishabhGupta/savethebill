@@ -5,62 +5,50 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="7866007094344"
-    token="-468044569050062489"
-    verifier="METHOD_ADDED" >
+    timestamp="81882351924393"
+    token="-468044569050062489" >
 
     <task
         name="javac"
-        duration="4319" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="590" />
+        duration="0" />
     <task
         name="verifier"
-        duration="409" />
-
-    <artifact
-        location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_9\classes.dex"
-        type="DEX" />
+        duration="0" />
 
     <build
-        timestamp="2387357321613"
+        timestamp="79207118879224"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="E:\savethebill\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="7040081856114"
+        timestamp="80451376288854"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="E:\savethebill\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
             type="RESOURCES" />
-        <artifact
-            location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
-            type="DEX" />
-        <artifact
-            location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
-            type="DEX" />
-        <artifact
-            location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_6\classes.dex"
-            type="DEX" />
-        <artifact
-            location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
-            type="DEX" />
-        <artifact
-            location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
-            type="DEX" />
     </build>
     <build
-        timestamp="7866007094344"
-        verifier="METHOD_ADDED" >
+        timestamp="81232367450995"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_9\classes.dex"
             type="DEX" />
     </build>
+    <build
+        timestamp="81785114362588"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="E:\savethebill\app\build\intermediates\builds\debug\81785114362588\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build timestamp="81882351924393" />
 
 </instant-run>
