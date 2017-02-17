@@ -430,7 +430,10 @@ public class AddBill extends AppCompatActivity {
     }
 
     public void setCount(long c){
-    private void verifyCameraPermission() {
+        count = c;
+    }
+
+        private void verifyCameraPermission() {
         // Here, thisActivity is the current activity
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.CAMERA)
