@@ -261,7 +261,7 @@ public class AddBill extends AppCompatActivity {
             public void onDataChange(DataSnapshot snapshot) {
                 cd = snapshot.getChildrenCount();
                 System.out.println("The read success: " + cd);
-                getData(cd);
+                setCount(cd);
             }
 
             @Override
@@ -362,29 +362,37 @@ public class AddBill extends AppCompatActivity {
         notificationIntent.putExtra("name",a.getText().toString());
         notificationIntent.putExtra("type",b.getText().toString());
 
+        SharedPreferences preferences=getSharedPreferences("bills",MODE_PRIVATE);
+        long bill_count=preferences.getLong("bill_count",0);
+        bill.setId(bill_count+"");
+
         if(cal1!=null&&cal1.getTimeInMillis()<=System.currentTimeMillis()){
             Toast.makeText(AddBill.this, "Date should be greater than current time.", Toast.LENGTH_SHORT).show();
             return;
         }
         if(cal1!=null&&fromDateEtxt.getText().toString().length()>0) {
-          setRepeatingAlarm(notificationIntent,cal1);
+          setRepeatingAlarm(notificationIntent,cal1, bill, 1);
         }
         if(cal2!=null&&cal2.getTimeInMillis()<=System.currentTimeMillis()){
             Toast.makeText(AddBill.this, "Date should be greater than current time.", Toast.LENGTH_SHORT).show();
             return;
         }
         if(cal2!=null&&toDateEtxt.getText().toString().length()>0) {
-            setRepeatingAlarm(notificationIntent,cal2);
+            setRepeatingAlarm(notificationIntent,cal2, bill, 2);
         }
 
-        mDatabase.child("Bill"+count).setValue(bill);
+        SharedPreferences.Editor editor=getSharedPreferences("bills",MODE_PRIVATE).edit();
+        editor.putLong("bill_count",bill_count+1);
+        editor.commit();
+        mDatabase.child("Bill"+bill_count).setValue(bill);
         Toast.makeText(getApplicationContext(),"Bill added successfully.",Toast.LENGTH_SHORT).show();
 
         Intent i=new Intent(getApplicationContext(),AllBills.class);
         startActivity(i);
+        finish();
     }
 
-    public void setRepeatingAlarm(Intent notificationIntent, Calendar cal) {
+    public void setRepeatingAlarm(Intent notificationIntent, Calendar cal, Bill bill,int number) {
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
@@ -392,11 +400,16 @@ public class AddBill extends AppCompatActivity {
 
         int id = (int) System.currentTimeMillis();
         notificationIntent.putExtra("id",id);
+        notificationIntent.putExtra("bill_id",bill.getId());
+        if(number==1)
+            bill.setId1(id+"");
+        else if(number==2)
+            bill.setId2(id+"");
 
         PendingIntent broadcast2 = PendingIntent.getBroadcast(getApplicationContext(), id, notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
 
         SharedPreferences.Editor editor=getSharedPreferences("bills",MODE_PRIVATE).edit();
-        editor.putString(a.getText().toString()+id, "no");
+        editor.putString(bill.getId()+id, "no");
         editor.commit();
 
         Calendar calx = Calendar.getInstance();
@@ -416,6 +429,7 @@ public class AddBill extends AppCompatActivity {
         alarmManager.set(AlarmManager.RTC, cal.getTimeInMillis(),cancellationPendingIntent);
     }
 
+    public void setCount(long c){
     private void verifyCameraPermission() {
         // Here, thisActivity is the current activity
         if (ContextCompat.checkSelfPermission(this,
@@ -466,5 +480,11 @@ public class AddBill extends AppCompatActivity {
         }
 
         return mediaFile;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -47,18 +48,18 @@ import java.util.Locale;
 
 public class EditBill extends AppCompatActivity {
 
-    EditText a,c;
+    private static final String TAG = EditBill.class.getSimpleName();
+    EditText a,c,d,e;
     AutoCompleteTextView b;
-    private EditText fromDateEtxt;
-    private EditText toDateEtxt;
     private Bitmap bitmap;
     String base64Image;
+    private String billname, type, imagestring, endDate1, endDate2, nameofowner, id1, id2, id;
     private DatePickerDialog fromDatePickerDialog;
     private DatePickerDialog toDatePickerDialog;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mFirebaseUser;
     private DatabaseReference mDatabase;
-    String[] data=new String[6];
+    String[] data=new String[9];
     private SimpleDateFormat dateFormatter;
     private Uri fileUri;
     Calendar cal1,cal2;
@@ -89,21 +90,29 @@ public class EditBill extends AppCompatActivity {
                 long count = snapshot.getChildrenCount();
                 System.out.println("testing....."+count);
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-
                     String str =  postSnapshot.getValue(String.class);
                     data[i]=str;
+                    Log.d(TAG,data[i]);
+
                     i++;
                 }
-                System.out.println("The read success: " + count);
+                billname=data[0];
+                endDate1 =data[1];
+                endDate2 =data[2];
+                id=data[3];
+                id1=data[4];
+                id2=data[5];
+                imagestring =data[6];
+                nameofowner =data[7];
+                type=data[8];
 
-                a.setText(data[0]);
-                c.setText(data[4]);
-                b.setText(data[5]);
-                fromDateEtxt.setText(data[1]);
-                toDateEtxt.setText(data[3]);
-                String image=data[2];
-                if(image!=null&&!image.equals("")){
-                    byte[] imageAsBytes = Base64.decode(image.getBytes(), Base64.DEFAULT);
+                a.setText(billname);
+                c.setText(nameofowner);
+                b.setText(type);
+                d.setText(endDate1);
+                e.setText(endDate2);
+                if(imagestring !=null&&!imagestring.equals("")){
+                    byte[] imageAsBytes = Base64.decode(imagestring.getBytes(), Base64.DEFAULT);
                     bitmap=BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
                     imgPreview.setImageBitmap(bitmap);
                 }
@@ -147,8 +156,6 @@ public class EditBill extends AppCompatActivity {
         final Intent intent = getIntent();
         position=intent.getStringExtra("position");
 
-        //firebase = new Firebase("https://savethebill.firebaseio.com");
-        //ref=new Firebase("https://savethebill.firebaseio.com/"+firebase.getAuth().getUid()+"/Bill"+position);
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
         String uid=mFirebaseUser.getUid();
@@ -157,6 +164,8 @@ public class EditBill extends AppCompatActivity {
         a=(EditText)findViewById(R.id.bill_name);
         b=(AutoCompleteTextView)findViewById(R.id.autoCompleteTextView);
         c=(EditText)findViewById(R.id.owner);
+        d=(EditText)findViewById(R.id.enddate1);
+        e=(EditText)findViewById(R.id.enddate2);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
                 (this,android.R.layout.select_dialog_item, arr);
@@ -167,23 +176,21 @@ public class EditBill extends AppCompatActivity {
         imgPreview = (ImageView) findViewById(R.id.imageView);
         btnCapturePicture = (Button) findViewById(R.id.bu);
 
-        fromDateEtxt = (EditText) findViewById(R.id.etxt_fromdate);
-        fromDateEtxt.setInputType(InputType.TYPE_NULL);
+        d.setInputType(InputType.TYPE_NULL);
 
-        toDateEtxt = (EditText) findViewById(R.id.etxt_todate);
-        toDateEtxt.setInputType(InputType.TYPE_NULL);
+        e.setInputType(InputType.TYPE_NULL);
         setDateTimeField();
     }
 
     private void setDateTimeField() {
-        fromDateEtxt.setOnClickListener(new View.OnClickListener() {
+        d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 fromDatePickerDialog.show();
             }
         });
-        toDateEtxt.setOnClickListener(new View.OnClickListener() {
+        e.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 toDatePickerDialog.show();
@@ -198,7 +205,7 @@ public class EditBill extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 cal1 = Calendar.getInstance();
                 cal1.set(year, monthOfYear, dayOfMonth);
-                fromDateEtxt.setText(dateFormatter.format(cal1.getTime()));
+                d.setText(dateFormatter.format(cal1.getTime()));
             }
 
         },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
@@ -208,7 +215,7 @@ public class EditBill extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 cal2 = Calendar.getInstance();
                 cal2.set(year, monthOfYear, dayOfMonth);
-                toDateEtxt.setText(dateFormatter.format(cal2.getTime()));
+                e.setText(dateFormatter.format(cal2.getTime()));
             }
 
         },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
@@ -284,7 +291,6 @@ public class EditBill extends AppCompatActivity {
         outState.putParcelable("file_uri", fileUri);
     }
 
-
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
@@ -299,12 +305,22 @@ public class EditBill extends AppCompatActivity {
         progressDialog.setMessage("Editing bill...");
         progressDialog.show();
 
+        SharedPreferences preferences=getSharedPreferences("bills", Context.MODE_PRIVATE);
+        String cancel1=preferences.getString(id+id1,null);
+        String cancel2=preferences.getString(id+id2,null);
+        SharedPreferences.Editor editor=getSharedPreferences("bills",MODE_PRIVATE).edit();
+        if(cancel1!=null)
+            editor.putString(id+id2, "yes");
+        if(cancel2!=null)
+            editor.putString(id+id1, "yes");
+        editor.commit();
+
         final Bill bill=new Bill();
         bill.setBillName(a.getText().toString());
         bill.setType(b.getText().toString());
         bill.setNameofowner(c.getText().toString());
-        bill.setEndDate2(fromDateEtxt.getText().toString());
-        bill.setEndDate1(toDateEtxt.getText().toString());
+        bill.setEndDate2(d.getText().toString());
+        bill.setEndDate1(e.getText().toString());
         if(bitmap!=null)
         {
             storeImageToFirebase();
@@ -323,52 +339,66 @@ public class EditBill extends AppCompatActivity {
             Toast.makeText(EditBill.this, "Date should be greater than current time.", Toast.LENGTH_SHORT).show();
             return;
         }
-        if(cal1!=null&&fromDateEtxt.getText().toString().length()>0) {
-            setRepeatingAlarm(notificationIntent,cal1);
+        if(cal1!=null&&d.getText().toString().length()>0) {
+            setRepeatingAlarm(notificationIntent,cal1, bill, 1);
         }
         if(cal2!=null&&cal2.getTimeInMillis()<=System.currentTimeMillis()){
             Toast.makeText(EditBill.this, "Date should be greater than current time.", Toast.LENGTH_SHORT).show();
             return;
         }
-        if(cal2!=null&&toDateEtxt.getText().toString().length()>0) {
-            setRepeatingAlarm(notificationIntent,cal2);
+        if(cal2!=null&&e.getText().toString().length()>0) {
+            setRepeatingAlarm(notificationIntent,cal2,bill,2);
         }
-        System.out.println("got"+count);
+        //System.out.println("got"+count);
 
         mDatabase.removeValue();
-        //ref = new Firebase("https://savethebill.firebaseio.com/" + firebase.getAuth().getUid());
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
         String uid=mFirebaseUser.getUid();
-        mDatabase = FirebaseDatabase.getInstance().getReference(uid+"/Bill"+position);
-        mDatabase.child("Bill"+position).setValue(bill);
+        mDatabase = FirebaseDatabase.getInstance().getReference(uid);
+        SharedPreferences.Editor editor1=getSharedPreferences("bills",MODE_PRIVATE).edit();
+        SharedPreferences preferences1=getSharedPreferences("bills",MODE_PRIVATE);
+        long bill_count=preferences1.getLong("bill_count",0);
+        bill.setId(bill_count+"");
+        editor1.putLong("bill_count",bill_count+1);
+        editor1.commit();
+        mDatabase.child("Bill"+bill_count).setValue(bill);
         progressDialog.dismiss();
         Toast.makeText(getApplicationContext(),"Bill edited successfully.",Toast.LENGTH_SHORT).show();
 
         Intent i=new Intent(getApplicationContext(),DisplayBill.class);
         i.putExtra("position",position);
         startActivity(i);
+        finish();
     }
 
-    public void setRepeatingAlarm(Intent notificationIntent, Calendar cal) {
+    public void setRepeatingAlarm(Intent notificationIntent, Calendar cal, Bill bill,int number) {
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
         notificationIntent.putExtra("daysleft",cal.getTime().getTime());
-        //Log.d("addbill",String.valueOf(cal.getTime().getTime()));
 
         int id = (int) System.currentTimeMillis();
-
         notificationIntent.putExtra("id",id);
+        notificationIntent.putExtra("bill_id",bill.getId());
+        if(number==1)
+            bill.setId1(id+"");
+        else if(number==2)
+            bill.setId2(id+"");
 
-        PendingIntent broadcast2 = PendingIntent.getBroadcast(getApplicationContext(), id, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent broadcast2 = PendingIntent.getBroadcast(getApplicationContext(), id, notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+
+        SharedPreferences.Editor editor=getSharedPreferences("bills",MODE_PRIVATE).edit();
+        editor.putString(bill.getId()+id, "no");
+        editor.commit();
 
         Calendar calx = Calendar.getInstance();
-        calx.set(Calendar.HOUR_OF_DAY, 10);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calx.getTimeInMillis(), 4 * 24 * 60 * 60 * 1000, broadcast2);
+        calx.set(Calendar.MINUTE, 15);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calx.getTimeInMillis(), 60 * 1000, broadcast2);
 
         Intent cancellationIntent = new Intent(this, CancelAlarmBroadcastReceiver.class);
-        cancellationIntent.setAction("android.media.action.DISPLAY_NOTIFICATION");
+        //cancellationIntent.setAction("android.media.action.DISPLAY_NOTIFICATION");
+        cancellationIntent.putExtra("name",notificationIntent.getStringExtra("name"));
 
         Log.d("AddBill","ABOUT TO REACH");
         cancellationIntent.putExtra("key",broadcast2);
@@ -377,11 +407,6 @@ public class EditBill extends AppCompatActivity {
         PendingIntent cancellationPendingIntent = PendingIntent.getBroadcast(getApplicationContext(), id, cancellationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         alarmManager.set(AlarmManager.RTC, cal.getTimeInMillis(),cancellationPendingIntent);
-
-    }
-
-    public void getData(long c){
-        count=c;
     }
 
     public Uri getOutputMediaFileUri(int type) {

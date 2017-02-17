@@ -77,14 +77,14 @@
             android:layout_marginTop="40dp">
 
             <EditText
-                android:id="@+id/etxt_fromdate"
+                android:id="@+id/enddate1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
                 android:hint="end date 1" />
 
             <EditText
-                android:id="@+id/etxt_todate"
+                android:id="@+id/enddate2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"

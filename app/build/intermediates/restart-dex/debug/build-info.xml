@@ -1,33 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
     abi="armeabi-v7a,armeabi"
-    api-level="23"
+    api-level="24"
     density="xxhdpi"
-    format="7"
-    timestamp="10745439324431"
-    token="3788253216700722374" >
+    format="8"
+    plugin-version="2.2.3"
+    timestamp="81882351924393"
+    token="-468044569050062489" >
 
     <task
         name="javac"
-        duration="3051" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="108" />
+        duration="0" />
     <task
         name="verifier"
-        duration="108" />
+        duration="0" />
 
-    <artifact
-        location="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
-
-    <build timestamp="10745439324431" >
+    <build
+        timestamp="79207118879224"
+        verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/outputs/apk/app-debug.apk"
+            location="E:\savethebill\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
+    <build
+        timestamp="80451376288854"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="E:\savethebill\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+            type="RESOURCES" />
+    </build>
+    <build
+        timestamp="81232367450995"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_9\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="81785114362588"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="E:\savethebill\app\build\intermediates\builds\debug\81785114362588\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build timestamp="81882351924393" />
 
 </instant-run>

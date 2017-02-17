@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.0_388464903e9d6e3ff1c95aa06264e6a95442b6eb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.0.1_42a966fedaa113af993e0872e08000bc4872ee1c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-10.0.1_6339c9931244740b969cf50b6b276c1794b4d01c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.android.support\preference-v14\25.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6cdbe967aa2b693a0a1f6859091794601c087e5b">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-preference-v14-25.0.1_fe2512ec228ff6553b079ad277c374e6572f8354\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.0_e81005cfe52cff344373444cd6589565c0d1bcb7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.0.1_d6f125db4a25484b99b17cb23e15543eb23e0c9f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-10.0.1_27bcb27f1fefaa9d90184cdbfb8ec0da5dbc8393\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.android.support\preference-v7\25.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9bcc5d07e3c05d87798e602ad1e6d2a28ce0782d">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-preference-v7-25.0.1_bf2c8829ca0d6bd8d5d5dff945b141a2adbe48da\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.0_88b545cb21c2e80a14b2b61cb4318cd9955e6f53\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_00c54de31710b94412dcbf482a62490dcf399cf9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_6899902c86ff3cd8b95fd0a8a6ece0dedfea6440\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.0.1_e1018cbe83e0c95c26f88b4d5fa224011a9370e9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-10.0.1_29b74b85e364acab760065c1d031be8e89285ff2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.takisoft.fix\preference-v7\25.0.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="633643588a572deb831c940072862030aec5fc60">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.takisoft.fix-preference-v7-25.0.1.0_9b4db4f4e4c88593afe9ae4cbce95086f74bbb72\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.android.support\design\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.1.0_61d95757876b360b8d33d6a9b91a4b9185b36320\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.0_89a3f3d4e9a34efdf57e96ea21fdccf8e52d65f3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.0_368418ba40e346289ba971132aa2154b03a77c2d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.0_36e2b7ef48b8cf7afa56e50c019fe3dc96b3859b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.0.1_fe600176eb02ece861786cf9bf2324294d8e567d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6b454d72ac546a60584a3278687bd0f585eb4dd1">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_2194388cf586dc56618ba33b53b60aeaa025c472\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.1.0_c91a08b78f16c490715188a98b33e49e17f7e284\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b23730c432c20304aa69b595a7e9c25f8a4e433f">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_d0ee26060335de6676b1ee7d01325e51d77144e9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.jakewharton\butterknife\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a07818a1ecabdb149998823429cce555af4b9cba">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.jakewharton-butterknife-8.4.0_3d1c92d7040da186e3552abaa2ffc6c405436678\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.0_67601220897f0f3ba8faa2f6f8815f45b2a642e5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.0_9fc97b2815fc72179cae92837261d219d30f5f6d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife-annotations\8.4.0\ea392375cf9ff59234a82e7928a204215ccc98cd\butterknife-annotations-8.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-annotations-8.4.0_14bd4cb55c59dd9b0d954c8e00ad90ab396ec022\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-10.0.1_cab00379c46b16f365b75b29b5e89c537bad9dac\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.1.0_794492ad775ec01dc98dfe8d667e450923b1f1ed\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.0_079ead26bec82d0572a9b2e7b6d8c82a2eba7b45\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\savethebill\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="E:\savethebill\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.0_e5dbafe2836c0ca625207411ad0afbc0a7ef267c\classes.dex" />
+    </item>
+
+</items>

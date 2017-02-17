@@ -30,15 +30,17 @@ AlarmReceiver extends BroadcastReceiver {
         String type;
         Long endate1;
         int id;
+        String bill_id;
 
         billname = bundle.getString("name");
         endate1=bundle.getLong("daysleft");
         type = bundle.getString("type");
         id=bundle.getInt("id");
+        bill_id=bundle.getString("bill_id");
 
         SharedPreferences preferences=context.getSharedPreferences("bills",Context.MODE_PRIVATE);
-        String cancel=preferences.getString(billname+id,null);
-        Log.d("AlarmReceiver",cancel+" "+ billname+id);
+        String cancel=preferences.getString(bill_id+id,null);
+        Log.d("AlarmReceiver",cancel+" "+ bill_id+id);
         if(cancel.equals("no")){
 
             Date setDate= new Date();
@@ -59,7 +61,7 @@ AlarmReceiver extends BroadcastReceiver {
 
             Intent cancellationIntent = new Intent(context, CancelAlarmBroadcastReceiver.class);
             //cancellationIntent.setAction("android.media.action.DISPLAY_NOTIFICATION");
-            cancellationIntent.putExtra("name",billname+id);
+            cancellationIntent.putExtra("name",bill_id+id);
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
 
