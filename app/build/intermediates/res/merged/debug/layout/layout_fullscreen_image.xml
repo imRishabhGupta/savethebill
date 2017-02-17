@@ -5,8 +5,8 @@
 
     <com.example.user.savethebill.TouchImageView
         android:id="@+id/imgDisplay"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scaleType="fitCenter" />
 
     <Button

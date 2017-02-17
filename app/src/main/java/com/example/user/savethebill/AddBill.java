@@ -37,6 +37,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.scanlibrary.ScanActivity;
+import com.scanlibrary.ScanConstants;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -82,6 +84,7 @@ public class AddBill extends AppCompatActivity {
     private static final int GALLERY_REQUEST_CODE = 1234;
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static final int MY_PERMISSIONS_REQUEST_CAMERA = 0;
+    private static final int REQUEST_CODE = 99;
     private Uri fileUri;
     private ProgressDialog progress;
     Bitmap image = null;
@@ -111,8 +114,12 @@ public class AddBill extends AppCompatActivity {
     }
 
     private void CaptureImageCamera() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, CAMERA_CAPTURE_REQUEST_CODE);
+//        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//        startActivityForResult(intent, CAMERA_CAPTURE_REQUEST_CODE);
+        int preference = ScanConstants.OPEN_CAMERA;
+        Intent intent = new Intent(this, ScanActivity.class);
+        intent.putExtra(ScanConstants.OPEN_INTENT_PREFERENCE, preference);
+        startActivityForResult(intent, REQUEST_CODE);
     }
 
     private void GetImagesGallery() {
@@ -141,23 +148,33 @@ public class AddBill extends AppCompatActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CAMERA_CAPTURE_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                image = (Bitmap) data.getExtras().get("data");
-                imgPreview.setImageBitmap(image);
-                getCameraImageUri();
-            } else if (resultCode == RESULT_CANCELED) {
-                // user cancelled Image capture
-                Toast.makeText(getApplicationContext(),
-                        "User cancelled image capture", Toast.LENGTH_SHORT)
-                        .show();
-            } else {
-                // failed to capture image
-                Toast.makeText(getApplicationContext(),
-                        "Sorry! Failed to capture image", Toast.LENGTH_SHORT)
-                        .show();
+//        if (requestCode == CAMERA_CAPTURE_REQUEST_CODE) {
+//            if (resultCode == RESULT_OK) {
+//                image = (Bitmap) data.getExtras().get("data");
+//                imgPreview.setImageBitmap(image);
+//                getCameraImageUri();
+//            } else if (resultCode == RESULT_CANCELED) {
+//                // user cancelled Image capture
+//                Toast.makeText(getApplicationContext(),
+//                        "User cancelled image capture", Toast.LENGTH_SHORT)
+//                        .show();
+//            } else {
+//                // failed to capture image
+//                Toast.makeText(getApplicationContext(),
+//                        "Sorry! Failed to capture image", Toast.LENGTH_SHORT)
+//                        .show();
+//            }
+//
+//        }
+        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            fileUri = data.getExtras().getParcelable(ScanConstants.SCANNED_RESULT);
+            Bitmap bitmap = null;
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), fileUri);
+                imgPreview.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
         }
         if (requestCode == GALLERY_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
