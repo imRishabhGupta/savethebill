@@ -28,6 +28,10 @@
         "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/res/layout/design_navigation_item_header.xml"
     },
     {
+        "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/layout_fullscreen_image.xml",
+        "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/src/main/res/layout/layout_fullscreen_image.xml"
+    },
+    {
         "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_header_item_layout.xml",
         "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/abc_popup_menu_header_item_layout.xml"
     },
@@ -86,6 +90,10 @@
     {
         "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
         "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/activity_fullscreen_view.xml",
+        "source": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/src/main/res/layout/activity_fullscreen_view.xml"
     },
     {
         "merged": "/home/rohanagarwal94/Desktop/AndroidStudioProjects/savethebill/app/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",

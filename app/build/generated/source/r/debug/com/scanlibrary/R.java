@@ -23,32 +23,32 @@ public final class R {
 		public static final int scanPadding = 0x7f080094;
 	}
 	public static final class drawable {
-		public static final int camera = 0x7f020057;
-		public static final int circle = 0x7f020058;
-		public static final int gallery = 0x7f020075;
-		public static final int ic_launcher = 0x7f020076;
+		public static final int camera = 0x7f020058;
+		public static final int circle = 0x7f02005a;
+		public static final int gallery = 0x7f020077;
+		public static final int ic_launcher = 0x7f020079;
 	}
 	public static final class id {
-		public static final int BWMode = 0x7f0d00c9;
-		public static final int cameraButton = 0x7f0d00c1;
-		public static final int content = 0x7f0d00d0;
-		public static final int doneButton = 0x7f0d00ca;
-		public static final int grayMode = 0x7f0d00c8;
-		public static final int magicColor = 0x7f0d00c7;
-		public static final int original = 0x7f0d00c6;
-		public static final int polygonView = 0x7f0d00cf;
-		public static final int scanButton = 0x7f0d00cc;
-		public static final int scannedImage = 0x7f0d00cb;
-		public static final int selectButton = 0x7f0d00c0;
-		public static final int sourceFrame = 0x7f0d00cd;
-		public static final int sourceImageView = 0x7f0d00ce;
-		public static final int topBar = 0x7f0d00c5;
+		public static final int BWMode = 0x7f0d00cd;
+		public static final int cameraButton = 0x7f0d00c5;
+		public static final int content = 0x7f0d00d4;
+		public static final int doneButton = 0x7f0d00ce;
+		public static final int grayMode = 0x7f0d00cc;
+		public static final int magicColor = 0x7f0d00cb;
+		public static final int original = 0x7f0d00ca;
+		public static final int polygonView = 0x7f0d00d3;
+		public static final int scanButton = 0x7f0d00d0;
+		public static final int scannedImage = 0x7f0d00cf;
+		public static final int selectButton = 0x7f0d00c4;
+		public static final int sourceFrame = 0x7f0d00d1;
+		public static final int sourceImageView = 0x7f0d00d2;
+		public static final int topBar = 0x7f0d00c9;
 	}
 	public static final class layout {
-		public static final int pick_image_fragment = 0x7f040045;
-		public static final int result_layout = 0x7f040054;
-		public static final int scan_fragment_layout = 0x7f040055;
-		public static final int scan_layout = 0x7f040056;
+		public static final int pick_image_fragment = 0x7f040047;
+		public static final int result_layout = 0x7f040056;
+		public static final int scan_fragment_layout = 0x7f040057;
+		public static final int scan_layout = 0x7f040058;
 	}
 	public static final class string {
 		public static final int action_settings = 0x7f070036;

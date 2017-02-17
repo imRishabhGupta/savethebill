@@ -1,15 +1,16 @@
 package com.example.user.savethebill;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -24,7 +25,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -38,12 +38,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class AddBill extends AppCompatActivity {
 
@@ -70,14 +77,138 @@ public class AddBill extends AppCompatActivity {
     private SimpleDateFormat dateFormatter;
     Calendar cal1,cal2;
 
-    private Uri fileUri; // file url to store image/video
-
     private ImageView imgPreview;
-    private Button btnCapturePicture;
+    private static final int CAMERA_CAPTURE_REQUEST_CODE = 100;
+    private static final int GALLERY_REQUEST_CODE = 1234;
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static final int MY_PERMISSIONS_REQUEST_CAMERA = 0;
+    private Uri fileUri;
+    private ProgressDialog progress;
+    Bitmap image = null;
+
+    private static String[] APP_PERMISSIONS = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
+
+    @OnClick(R.id.gotoGallery)
+    void openGalleryImages() {
+        GetImagesGallery();
+    }
+
+    @OnClick(R.id.imageView)
+    void zoomImages() {
+        if(fileUri!=null) {
+            Intent i = new Intent(AddBill.this, FullScreenViewActivity.class);
+            i.putExtra("fileuri", fileUri.toString());
+            startActivity(i);
+        }
+    }
+
+    @OnClick(R.id.bu)
+    void openCameraImages() {
+        CaptureImageCamera();
+    }
+
+    private void CaptureImageCamera() {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, CAMERA_CAPTURE_REQUEST_CODE);
+    }
+
+    private void GetImagesGallery() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select File"), GALLERY_REQUEST_CODE);
+    }
+
+    private void getCameraImageUri() {
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    File file = new File(Environment.getExternalStorageDirectory(), "bill.jpg");
+                    OutputStream os = new BufferedOutputStream(new FileOutputStream(file));
+                    image.compress(Bitmap.CompressFormat.JPEG, 100, os);
+                    os.close();
+                    fileUri = Uri.fromFile(file);
+                } catch (Exception e) {
+                    Log.i("File Error", e.toString());
+                }
+            }
+        }.start();
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CAMERA_CAPTURE_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                image = (Bitmap) data.getExtras().get("data");
+                imgPreview.setImageBitmap(image);
+                getCameraImageUri();
+            } else if (resultCode == RESULT_CANCELED) {
+                // user cancelled Image capture
+                Toast.makeText(getApplicationContext(),
+                        "User cancelled image capture", Toast.LENGTH_SHORT)
+                        .show();
+            } else {
+                // failed to capture image
+                Toast.makeText(getApplicationContext(),
+                        "Sorry! Failed to capture image", Toast.LENGTH_SHORT)
+                        .show();
+            }
+
+        }
+        if (requestCode == GALLERY_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                fileUri = data.getData();
+                try {
+                    image = MediaStore.Images.Media.getBitmap(getContentResolver(), fileUri);
+                    image = Bitmap.createScaledBitmap(image, 500, 500, false);
+                    imgPreview.setImageBitmap(image);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else if (resultCode == RESULT_CANCELED) {
+                // user cancelled Image capture
+                Toast.makeText(getApplicationContext(),
+                        "User cancelled image selection", Toast.LENGTH_SHORT)
+                        .show();
+            } else {
+                // failed to capture image
+                Toast.makeText(getApplicationContext(),
+                        "Sorry! Failed to open Gallery", Toast.LENGTH_SHORT)
+                        .show();
+            }
+        }
+    }
+
+
+    public static void verifyStoragePermissions(Activity activity) {
+        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    APP_PERMISSIONS,
+                    REQUEST_EXTERNAL_STORAGE
+            );
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_bill);
+        ButterKnife.bind(this);
+        verifyStoragePermissions(this);
+        verifyCameraPermission();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -123,30 +254,6 @@ public class AddBill extends AppCompatActivity {
         });
 
         imgPreview = (ImageView) findViewById(R.id.imageView);
-        btnCapturePicture = (Button) findViewById(R.id.bu);
-        btnCapturePicture.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(AddBill.this,
-                        Manifest.permission.CAMERA)
-                        != PackageManager.PERMISSION_GRANTED) {
-
-
-                        ActivityCompat.requestPermissions(AddBill.this,
-                                new String[]{Manifest.permission.CAMERA},1);
-
-                    }
-                else if(ContextCompat.checkSelfPermission(AddBill.this,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        != PackageManager.PERMISSION_GRANTED){
-                    ActivityCompat.requestPermissions(AddBill.this,
-                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},3);
-                }
-                else
-                captureImage();
-            }
-        });
 
         fromDateEtxt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -190,63 +297,11 @@ public class AddBill extends AppCompatActivity {
         },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // if the result is capturing Image
-        if (requestCode == CAMERA_CAPTURE_IMAGE_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                // successfully captured the image
-                // display it in image view
-                previewCapturedImage();
-            } else if (resultCode == RESULT_CANCELED) {
-                // user cancelled Image capture
-                Toast.makeText(getApplicationContext(),
-                        "User cancelled image capture", Toast.LENGTH_SHORT)
-                        .show();
-            } else {
-                // failed to capture image
-                Toast.makeText(getApplicationContext(),
-                        "Sorry! Failed to capture image", Toast.LENGTH_SHORT)
-                        .show();
-            }
-        }
-    }
-
-    private void captureImage() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-        fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
-
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-
-        // start the image capture Intent
-        startActivityForResult(intent, CAMERA_CAPTURE_IMAGE_REQUEST_CODE);
-    }
-
     public void storeImageToFirebase() {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] bytes = baos.toByteArray();
         base64Image = Base64.encodeToString(bytes, Base64.DEFAULT);
-    }
-
-    private void previewCapturedImage() {
-        try {
-
-
-            imgPreview.setVisibility(View.VISIBLE);
-
-            BitmapFactory.Options options = new BitmapFactory.Options();
-
-            options.inSampleSize = 4;
-
-             bitmap = BitmapFactory.decodeFile(fileUri.getPath(),
-                    options);
-
-            imgPreview.setImageBitmap(bitmap);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
@@ -342,6 +397,18 @@ public class AddBill extends AppCompatActivity {
         PendingIntent cancellationPendingIntent = PendingIntent.getBroadcast(getApplicationContext(), id, cancellationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         alarmManager.set(AlarmManager.RTC, cal.getTimeInMillis(),cancellationPendingIntent);
+    }
+
+    private void verifyCameraPermission() {
+        // Here, thisActivity is the current activity
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.CAMERA},
+                        MY_PERMISSIONS_REQUEST_CAMERA);
+        }
     }
 
     public void getData(long c){

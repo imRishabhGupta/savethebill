@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature android:name="android.hardware.camera" />
@@ -34,6 +35,10 @@
             android:windowSoftInputMode="stateHidden|adjustResize"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".FullScreenViewActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
             android:name=".AllBills"
             android:label="@string/title_activity_all_bills"
             android:parentActivityName=".LoginActivity"
@@ -45,11 +50,7 @@
         <activity
             android:name=".AddBill"
             android:label="@string/title_activity_add_bill"
-            android:parentActivityName=".AllBills"
             android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.user.savethebill.AllBills" />
         </activity>
         <activity
             android:name=".DisplayBill"
