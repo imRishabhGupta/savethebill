@@ -1,0 +1,7 @@
+#Tue Feb 14 19:39:27 IST 2017
+base.0=E\:\\savethebill\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_d0ee26060335de6676b1ee7d01325e51d77144e9
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=E\:\\savethebill\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_2194388cf586dc56618ba33b53b60aeaa025c472\\classes.dex
+base.1=E\:\\savethebill\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_2194388cf586dc56618ba33b53b60aeaa025c472
+file.0=E\:\\savethebill\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_d0ee26060335de6676b1ee7d01325e51d77144e9\\classes.dex
