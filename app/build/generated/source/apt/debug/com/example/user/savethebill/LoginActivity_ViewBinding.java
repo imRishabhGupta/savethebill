@@ -18,13 +18,13 @@ import java.lang.Override;
 public class LoginActivity_ViewBinding<T extends LoginActivity> implements Unbinder {
   protected T target;
 
-  private View view2131558531;
+  private View view2131558535;
 
-  private View view2131558533;
+  private View view2131558537;
 
-  private View view2131558532;
+  private View view2131558536;
 
-  private View view2131558530;
+  private View view2131558534;
 
   @UiThread
   public LoginActivity_ViewBinding(final T target, View source) {
@@ -36,7 +36,7 @@ public class LoginActivity_ViewBinding<T extends LoginActivity> implements Unbin
     target.autocompleteEmail = Utils.findRequiredViewAsType(source, R.id.email_input, "field 'autocompleteEmail'", AutoCompleteTextView.class);
     view = Utils.findRequiredView(source, R.id.log_in, "field 'logIn' and method 'logIn'");
     target.logIn = Utils.castView(view, R.id.log_in, "field 'logIn'", Button.class);
-    view2131558531 = view;
+    view2131558535 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -44,7 +44,7 @@ public class LoginActivity_ViewBinding<T extends LoginActivity> implements Unbin
       }
     });
     view = Utils.findRequiredView(source, R.id.sign_up, "method 'signUp'");
-    view2131558533 = view;
+    view2131558537 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -52,7 +52,7 @@ public class LoginActivity_ViewBinding<T extends LoginActivity> implements Unbin
       }
     });
     view = Utils.findRequiredView(source, R.id.forgot_password, "method 'forgotPassword'");
-    view2131558532 = view;
+    view2131558536 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -60,7 +60,7 @@ public class LoginActivity_ViewBinding<T extends LoginActivity> implements Unbin
       }
     });
     view = Utils.findRequiredView(source, R.id.password_input, "method 'onEditorAction'");
-    view2131558530 = view;
+    view2131558534 = view;
     ((TextView) view).setOnEditorActionListener(new TextView.OnEditorActionListener() {
       @Override
       public boolean onEditorAction(TextView p0, int p1, KeyEvent p2) {
@@ -80,14 +80,14 @@ public class LoginActivity_ViewBinding<T extends LoginActivity> implements Unbin
     target.autocompleteEmail = null;
     target.logIn = null;
 
-    view2131558531.setOnClickListener(null);
-    view2131558531 = null;
-    view2131558533.setOnClickListener(null);
-    view2131558533 = null;
-    view2131558532.setOnClickListener(null);
-    view2131558532 = null;
-    ((TextView) view2131558530).setOnEditorActionListener(null);
-    view2131558530 = null;
+    view2131558535.setOnClickListener(null);
+    view2131558535 = null;
+    view2131558537.setOnClickListener(null);
+    view2131558537 = null;
+    view2131558536.setOnClickListener(null);
+    view2131558536 = null;
+    ((TextView) view2131558534).setOnEditorActionListener(null);
+    view2131558534 = null;
 
     this.target = null;
   }
